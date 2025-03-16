@@ -33,9 +33,9 @@ uv pip install lazy-loader
 In this project, Lazy-Loader is used to:
 
 1. Optimize import times for large dependencies
-1. Reduce memory usage by only loading modules when needed
-1. Maintain clean imports in the codebase
-1. Improve application startup performance
+2. Reduce memory usage by only loading modules when needed
+3. Maintain clean imports in the codebase
+4. Improve application startup performance
 
 ## Configuration in This Project
 
@@ -46,10 +46,7 @@ Lazy-Loader is typically used in `__init__.py` files to lazily load submodules:
 from lazy_loader import lazy_loader
 
 # Set up lazy loading for submodules
-__getattr__, __dir__, __all__ = lazy_loader.attach(
-    __name__,
-    ["module1", "module2", "module3"]
-)
+__getattr__, __dir__, __all__ = lazy_loader.attach(__name__, ["module1", "module2", "module3"])
 ```
 
 ## Basic Usage
@@ -60,10 +57,7 @@ __getattr__, __dir__, __all__ = lazy_loader.attach(
 # In your package's __init__.py
 from lazy_loader import lazy_loader
 
-__getattr__, __dir__, __all__ = lazy_loader.attach(
-    __name__,
-    ["heavy_module", "rarely_used_module"]
-)
+__getattr__, __dir__, __all__ = lazy_loader.attach(__name__, ["heavy_module", "rarely_used_module"])
 ```
 
 ### Lazy Loading with Explicit Exports
@@ -77,7 +71,7 @@ __getattr__, __dir__, __all__ = lazy_loader.attach(
     {
         "heavy_module": ["Class1", "function1"],
         "rarely_used_module": ["Class2", "function2"],
-    }
+    },
 )
 ```
 
@@ -105,10 +99,7 @@ from lazy_loader import lazy_loader
 from .core import main_function, CoreClass
 
 # Set up lazy loading for heavier modules
-__getattr__, __dir__, __all__ = lazy_loader.attach(
-    __name__,
-    ["heavy_module", "rarely_used_module"]
-)
+__getattr__, __dir__, __all__ = lazy_loader.attach(__name__, ["heavy_module", "rarely_used_module"])
 
 # Add directly imported items to __all__
 __all__ += ["main_function", "CoreClass"]
@@ -131,20 +122,20 @@ result = your_package.heavy_module.heavy_function()
 
 Lazy loading can significantly improve startup time and memory usage:
 
-| Scenario | Without Lazy Loading | With Lazy Loading |
-|----------|----------------------|-------------------|
-| Startup Time | 500ms | 150ms |
-| Memory Usage | 100MB | 40MB |
-| First Access | Immediate | Slight delay |
+| Scenario     | Without Lazy Loading | With Lazy Loading |
+| ------------ | -------------------- | ----------------- |
+| Startup Time | 500ms                | 150ms             |
+| Memory Usage | 100MB                | 40MB              |
+| First Access | Immediate            | Slight delay      |
 
 ## Best Practices
 
 1. **Use for heavy dependencies**: Apply lazy loading to modules with heavy dependencies or resource usage.
-1. **Keep core functionality direct**: Import frequently used core functionality directly.
-1. **Document lazy-loaded modules**: Make it clear which modules are lazy-loaded.
-1. **Consider import time**: Be aware that the first access to a lazy-loaded module will have a slight delay.
-1. **Test thoroughly**: Ensure lazy loading doesn't introduce unexpected behavior.
-1. **Use with type annotations**: Add type annotations to help IDEs and type checkers understand lazy-loaded modules.
+2. **Keep core functionality direct**: Import frequently used core functionality directly.
+3. **Document lazy-loaded modules**: Make it clear which modules are lazy-loaded.
+4. **Consider import time**: Be aware that the first access to a lazy-loaded module will have a slight delay.
+5. **Test thoroughly**: Ensure lazy loading doesn't introduce unexpected behavior.
+6. **Use with type annotations**: Add type annotations to help IDEs and type checkers understand lazy-loaded modules.
 
 ## Advanced Usage
 
@@ -159,10 +150,7 @@ if TYPE_CHECKING:
     from .heavy_module import HeavyClass, heavy_function
 
 # Set up lazy loading
-__getattr__, __dir__, __all__ = lazy_loader.attach(
-    __name__,
-    ["heavy_module"]
-)
+__getattr__, __dir__, __all__ = lazy_loader.attach(__name__, ["heavy_module"])
 ```
 
 ### Selective Lazy Loading
@@ -180,7 +168,7 @@ __getattr__, __dir__, __all__ = lazy_loader.attach(
     {
         "heavy_module": ["HeavyClass", "heavy_function"],
         "rarely_used_module": ["RarelyUsedClass"],
-    }
+    },
 )
 ```
 

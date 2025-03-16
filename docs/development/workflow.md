@@ -17,19 +17,19 @@ Our development workflow is designed to:
 Before you begin development, ensure you have:
 
 1. Forked and cloned the repository
-1. Set up your development environment as described in [Getting Started](../getting-started.md)
-1. Installed pre-commit hooks with `uv run pre-commit install`
-1. Familiarized yourself with the [project structure](../getting-started.md)
+2. Set up your development environment as described in [Getting Started](../getting-started.md)
+3. Installed pre-commit hooks with `uv run pre-commit install`
+4. Familiarized yourself with the [project structure](../getting-started.md)
 
 ## Development Workflow
 
 When making changes:
 
 1. Follow the project's code style guidelines
-1. Write tests for new functionality
-1. Update documentation as needed
-1. Keep commits small and focused
-1. Use meaningful commit messages
+2. Write tests for new functionality
+3. Update documentation as needed
+4. Keep commits small and focused
+5. Use meaningful commit messages
 
 ### 3. Run Tests Locally
 
@@ -45,18 +45,18 @@ poe pre
 Our CI pipeline automatically:
 
 1. Runs tests on all PRs
-1. Checks code quality
-1. Verifies documentation builds
-1. Ensures all pre-commit hooks pass
+2. Checks code quality
+3. Verifies documentation builds
+4. Ensures all pre-commit hooks pass
 
 ## Release Process
 
 Releases are managed by maintainers and follow these steps:
 
 1. Version bump according to [Semantic Versioning](https://semver.org/)
-1. Changelog update
-1. Tag creation
-1. Release build and deployment
+2. Changelog update
+3. Tag creation
+4. Release build and deployment
 
 ## Best Practices
 
@@ -97,9 +97,9 @@ Releases are managed by maintainers and follow these steps:
 If pre-commit hooks fail:
 
 1. Read the error message carefully
-1. Fix the issues locally
-1. Stage the changes
-1. Try committing again
+2. Fix the issues locally
+3. Stage the changes
+4. Try committing again
 
 If you need to bypass hooks temporarily:
 
@@ -125,12 +125,12 @@ git push --force-with-lease origin your-branch  # (7)
 ```
 
 1. Switch to the main branch
-1. Pull the latest changes
-1. Switch back to your feature branch
-1. Rebase your branch on main
-1. Stage resolved conflicts
-1. Continue the rebase process
-1. Force push with lease for safety
+2. Pull the latest changes
+3. Switch back to your feature branch
+4. Rebase your branch on main
+5. Stage resolved conflicts
+6. Continue the rebase process
+7. Force push with lease for safety
 
 ## Resources
 

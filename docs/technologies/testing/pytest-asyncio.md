@@ -33,9 +33,9 @@ uv pip install pytest-asyncio
 In this project, Pytest-asyncio is used to:
 
 1. Test asynchronous functions and coroutines
-1. Ensure proper handling of async resources
-1. Validate async API behavior
-1. Test concurrent operations
+2. Ensure proper handling of async resources
+3. Validate async API behavior
+4. Test concurrent operations
 
 ## Configuration in This Project
 
@@ -61,12 +61,14 @@ async def test_async_function():
     result = await my_async_function()
     assert result == expected_value
 
+
 # Using async fixtures
 @pytest.fixture
 async def async_resource():
     resource = await create_resource()
     yield resource
     await resource.close()
+
 
 async def test_with_async_fixture(async_resource):
     result = await async_resource.operation()
@@ -90,12 +92,14 @@ uv run pytest test_async_module.py
 ```python
 import pytest
 
+
 @pytest.fixture
 async def api_client():
     client = AsyncAPIClient()
     await client.connect()
     yield client
     await client.disconnect()
+
 
 async def test_api_get_data(api_client):
     data = await api_client.get_data("resource_id")
@@ -108,13 +112,10 @@ async def test_api_get_data(api_client):
 ```python
 import asyncio
 
+
 async def test_concurrent_operations():
     # Run multiple operations concurrently
-    results = await asyncio.gather(
-        operation1(),
-        operation2(),
-        operation3()
-    )
+    results = await asyncio.gather(operation1(), operation2(), operation3())
 
     # Check results
     assert results[0] == expected1
@@ -127,27 +128,27 @@ async def test_concurrent_operations():
 Pytest-asyncio supports different modes for handling the asyncio event loop:
 
 1. **`auto`**: Automatically detects async tests and fixtures
-1. **`strict`**: Requires explicit marking of async tests with `@pytest.mark.asyncio`
-1. **`legacy`**: Uses a single event loop for all tests (deprecated)
+2. **`strict`**: Requires explicit marking of async tests with `@pytest.mark.asyncio`
+3. **`legacy`**: Uses a single event loop for all tests (deprecated)
 
 ## Best Practices
 
 1. **Use appropriate fixtures**: Create async fixtures for resource management.
-1. **Clean up resources**: Always clean up async resources in fixture teardown.
-1. **Test error handling**: Test both success and error paths in async code.
-1. **Avoid mixing sync and async**: Keep synchronous and asynchronous code separate.
-1. **Test timeouts**: Use `asyncio.wait_for()` to test timeout behavior.
-1. **Test cancellation**: Verify that your async code handles cancellation correctly.
-1. **Use `asyncio.gather`**: Test concurrent operations with `asyncio.gather`.
+2. **Clean up resources**: Always clean up async resources in fixture teardown.
+3. **Test error handling**: Test both success and error paths in async code.
+4. **Avoid mixing sync and async**: Keep synchronous and asynchronous code separate.
+5. **Test timeouts**: Use `asyncio.wait_for()` to test timeout behavior.
+6. **Test cancellation**: Verify that your async code handles cancellation correctly.
+7. **Use `asyncio.gather`**: Test concurrent operations with `asyncio.gather`.
 
 ## Common Issues and Solutions
 
-| Issue | Solution |
-|-------|----------|
-| Event loop is closed | Use `asyncio_mode = "auto"` in pytest configuration |
-| Fixture teardown not running | Ensure you're using `yield` instead of `return` in async fixtures |
-| Test hangs indefinitely | Add timeouts to your async operations with `asyncio.wait_for()` |
-| Mixing sync and async code | Use `asyncio.run()` or `loop.run_until_complete()` to call async from sync |
+| Issue                        | Solution                                                                   |
+| ---------------------------- | -------------------------------------------------------------------------- |
+| Event loop is closed         | Use `asyncio_mode = "auto"` in pytest configuration                        |
+| Fixture teardown not running | Ensure you're using `yield` instead of `return` in async fixtures          |
+| Test hangs indefinitely      | Add timeouts to your async operations with `asyncio.wait_for()`            |
+| Mixing sync and async code   | Use `asyncio.run()` or `loop.run_until_complete()` to call async from sync |
 
 ## Resources
 

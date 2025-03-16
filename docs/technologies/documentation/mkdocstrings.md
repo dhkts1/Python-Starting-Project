@@ -34,10 +34,10 @@ uv pip install mkdocstrings[python]
 In this project, MkDocstrings is used to:
 
 1. Generate comprehensive API documentation from Python docstrings
-1. Maintain consistency between code and documentation
-1. Provide detailed function, class, and module documentation
-1. Reduce manual documentation effort
-1. Ensure documentation stays up-to-date with code changes
+2. Maintain consistency between code and documentation
+3. Provide detailed function, class, and module documentation
+4. Reduce manual documentation effort
+5. Ensure documentation stays up-to-date with code changes
 
 ## Configuration in This Project
 
@@ -61,9 +61,9 @@ plugins:
 ```
 
 1. Enables the MkDocstrings plugin
-1. Configures the Python handler
-1. Shows source code in documentation
-1. Uses Google-style docstrings
+2. Configures the Python handler
+3. Shows source code in documentation
+4. Uses Google-style docstrings
 
 ## Basic Usage
 
@@ -91,10 +91,10 @@ def calculate_area(length: float, width: float) -> float:
 ```
 
 1. Function signature with type hints
-1. Short description of the function
-1. Documentation of parameters
-1. Documentation of return value
-1. Documentation of exceptions
+2. Short description of the function
+3. Documentation of parameters
+4. Documentation of return value
+5. Documentation of exceptions
 
 ### Referencing in Markdown
 
@@ -111,6 +111,7 @@ Reference your code in Markdown files:
 ## Docstring Styles
 
 === "Google Style (Default)"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """Summary line.
@@ -132,6 +133,7 @@ def function(param1, param2):
 ````
 
 === "NumPy Style"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """Summary line.
@@ -160,6 +162,7 @@ def function(param1, param2):
 ````
 
 === "reStructuredText Style"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """Summary line.
@@ -221,13 +224,13 @@ Customize the rendering of documentation:
 ## Best Practices
 
 1. **Be consistent with docstring style**: Choose one style (Google, NumPy, or reStructuredText) and use it consistently.
-1. **Document all public APIs**: Ensure all public functions, classes, and methods have docstrings.
-1. **Include type hints**: Use type hints in your code to enhance documentation.
-1. **Document parameters and return values**: Always document parameters, return values, and exceptions.
-1. **Keep docstrings up-to-date**: Update docstrings when code changes.
-1. **Use examples**: Include examples in docstrings for complex functions.
-1. **Be concise but complete**: Provide enough information without being overly verbose.
-1. **Use cross-references**: Link to related documentation when appropriate.
+2. **Document all public APIs**: Ensure all public functions, classes, and methods have docstrings.
+3. **Include type hints**: Use type hints in your code to enhance documentation.
+4. **Document parameters and return values**: Always document parameters, return values, and exceptions.
+5. **Keep docstrings up-to-date**: Update docstrings when code changes.
+6. **Use examples**: Include examples in docstrings for complex functions.
+7. **Be concise but complete**: Provide enough information without being overly verbose.
+8. **Use cross-references**: Link to related documentation when appropriate.
 
 ## Integration with Type Hints
 
@@ -236,8 +239,8 @@ MkDocstrings works well with type hints:
 ```python linenums="1"
 from typing import List, Dict, Optional
 
-def process_data(data: List[Dict[str, str]],
-                 filter_key: Optional[str] = None) -> Dict[str, int]:
+
+def process_data(data: List[Dict[str, str]], filter_key: Optional[str] = None) -> Dict[str, int]:
     """Process the input data.
 
     Args:
@@ -250,8 +253,8 @@ def process_data(data: List[Dict[str, str]],
 ```
 
 1. Import type annotations from the typing module
-1. Parameter with complex type annotation
-1. Optional parameter with default value and return type annotation
+2. Parameter with complex type annotation
+3. Optional parameter with default value and return type annotation
 
 ## Troubleshooting
 
@@ -262,24 +265,24 @@ def process_data(data: List[Dict[str, str]],
 If documentation is not appearing:
 
 1. Check that the import path is correct
-1. Verify that the module is importable from where MkDocs is run
-1. Ensure the docstrings are properly formatted
+2. Verify that the module is importable from where MkDocs is run
+3. Ensure the docstrings are properly formatted
 
 #### Formatting Issues
 
 If docstrings aren't rendering correctly:
 
 1. Check that the docstring style in the configuration matches your code
-1. Verify indentation in docstrings
-1. Ensure all sections are properly formatted
+2. Verify indentation in docstrings
+3. Ensure all sections are properly formatted
 
 #### Import Errors
 
 If you encounter import errors:
 
 1. Make sure your package is installed in the environment where MkDocs runs
-1. Check for circular imports
-1. Consider using the `watch` option to monitor for changes
+2. Check for circular imports
+3. Consider using the `watch` option to monitor for changes
 
 ## Resources
 

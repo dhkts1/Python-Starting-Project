@@ -33,9 +33,9 @@ uv pip install xenon
 In this project, Xenon is used to:
 
 1. Enforce maximum complexity thresholds
-1. Prevent code quality degradation over time
-1. Run as part of the pre-commit hooks and CI/CD pipeline
-1. Ensure maintainable code across the codebase
+2. Prevent code quality degradation over time
+3. Run as part of the pre-commit hooks and CI/CD pipeline
+4. Ensure maintainable code across the codebase
 
 ## Configuration in This Project
 
@@ -60,9 +60,11 @@ This configuration:
 To run Xenon on the project:
 
 === "Using poe tasks"
+
 `bash linenums="1"     # Run via poethepoet     uv run poe xenon     `
 
 === "Using direct commands"
+
 `bash linenums="1"     # Run directly with thresholds     uv run xenon --max-absolute B --max-modules B --max-average A src/     `
 
 ### Common Command-Line Options
@@ -113,55 +115,55 @@ The following thresholds were exceeded:
 
 Xenon uses Radon's letter grades to rank complexity:
 
-| Rank | Complexity | Risk |
-|------|------------|-------------------------------------|
-| A | 1-5 | Low - simple block |
-| B | 6-10 | Low - well structured and stable |
-| C | 11-20 | Moderate - slightly complex |
-| D | 21-30 | More than moderate - more complex |
-| E | 31-40 | High - complex, alarming |
-| F | 41+ | Very high - error-prone, unstable |
+| Rank | Complexity | Risk                              |
+| ---- | ---------- | --------------------------------- |
+| A    | 1-5        | Low - simple block                |
+| B    | 6-10       | Low - well structured and stable  |
+| C    | 11-20      | Moderate - slightly complex       |
+| D    | 21-30      | More than moderate - more complex |
+| E    | 31-40      | High - complex, alarming          |
+| F    | 41+        | Very high - error-prone, unstable |
 
 ## Metrics Explained
 
 Xenon checks three different complexity metrics:
 
 1. **Absolute Complexity**: The highest complexity of any single function or method in the codebase
-1. **Module Complexity**: The highest average complexity of any module in the codebase
-1. **Average Complexity**: The average complexity across all functions and methods in the codebase
+2. **Module Complexity**: The highest average complexity of any module in the codebase
+3. **Average Complexity**: The average complexity across all functions and methods in the codebase
 
 ## Best Practices
 
 1. **Start with reasonable thresholds**: Begin with moderate thresholds (C or D) and gradually tighten them.
-1. **Focus on absolute complexity first**: Prioritize fixing the most complex functions.
-1. **Use with Radon**: Use Radon to identify specific complex functions that Xenon flags.
-1. **Include in CI pipeline**: Make Xenon part of your continuous integration checks.
-1. **Gradually improve thresholds**: As you refactor, gradually lower thresholds to prevent regression.
-1. **Document exceptions**: If certain complex functions can't be simplified, document why.
-1. **Balance strictness with practicality**: Very strict thresholds (all A's) might be impractical for some codebases.
+2. **Focus on absolute complexity first**: Prioritize fixing the most complex functions.
+3. **Use with Radon**: Use Radon to identify specific complex functions that Xenon flags.
+4. **Include in CI pipeline**: Make Xenon part of your continuous integration checks.
+5. **Gradually improve thresholds**: As you refactor, gradually lower thresholds to prevent regression.
+6. **Document exceptions**: If certain complex functions can't be simplified, document why.
+7. **Balance strictness with practicality**: Very strict thresholds (all A's) might be impractical for some codebases.
 
 ## Integration with CI/CD
 
 ### GitHub Actions Example
 
 ```yaml linenums="1"
-- name: Check code complexity
-  run: |
-    uv pip install xenon
-    xenon --max-absolute B --max-modules B --max-average A src/
+  - name: Check code complexity
+    run: |
+      uv pip install xenon
+      xenon --max-absolute B --max-modules B --max-average A src/
 ```
 
 ### Pre-commit Hook Example
 
 ```yaml linenums="1"
-- repo: local
-  hooks:
-    - id: xenon
-      name: xenon
-      entry: xenon --max-absolute B --max-modules B --max-average A
-      language: python
-      types: [python]
-      additional_dependencies: [xenon]
+  - repo: local
+    hooks:
+      - id: xenon
+        name: xenon
+        entry: xenon --max-absolute B --max-modules B --max-average A
+        language: python
+        types: [python]
+        additional_dependencies: [xenon]
 ```
 
 ## Troubleshooting
@@ -173,16 +175,16 @@ Xenon checks three different complexity metrics:
 If Xenon consistently fails with your current thresholds:
 
 1. Use Radon to identify the most complex parts of your code
-1. Refactor those parts to reduce complexity
-1. If refactoring isn't feasible, consider slightly relaxing thresholds
+2. Refactor those parts to reduce complexity
+3. If refactoring isn't feasible, consider slightly relaxing thresholds
 
 #### False Positives
 
 Some complex code might be unavoidably complex due to the problem domain:
 
 1. Consider excluding specific files from analysis
-1. Document why the complexity is necessary
-1. Ensure complex code is well-tested and documented
+2. Document why the complexity is necessary
+3. Ensure complex code is well-tested and documented
 
 ## Resources
 

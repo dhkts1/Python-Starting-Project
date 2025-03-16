@@ -33,9 +33,9 @@ uv pip install interrogate
 In this project, Interrogate is used to:
 
 1. Ensure all modules, classes, methods, and functions have docstrings
-1. Maintain a high level of documentation coverage
-1. Run as part of the pre-commit hooks and CI/CD pipeline
-1. Generate coverage reports for documentation quality assessment
+2. Maintain a high level of documentation coverage
+3. Run as part of the pre-commit hooks and CI/CD pipeline
+4. Generate coverage reports for documentation quality assessment
 
 ## Configuration in This Project
 
@@ -43,7 +43,7 @@ Interrogate is configured in the `pyproject.toml` file:
 
 ```toml linenums="1"
 [tool.interrogate]
-ignore-init-method = true  # (1)
+ignore-init-method = true                    # (1)
 ignore-init-module = true
 ignore-magic = true
 ignore-semiprivate = true
@@ -52,8 +52,8 @@ ignore-property-decorators = true
 ignore-module = true
 ignore-nested-functions = true
 ignore-nested-classes = true
-fail-under = 95  # (2)
-exclude = ["tests", "docs", "build", "dist"]  # (3)
+fail-under = 95                              # (2)
+exclude = ["tests", "docs", "build", "dist"] # (3)
 verbose = 1
 quiet = false
 whitelist-regex = []
@@ -61,8 +61,8 @@ color = true
 ```
 
 1. Ignores special methods that typically don't need docstrings
-1. Requires at least 95% docstring coverage to pass
-1. Excludes test files, documentation, and build artifacts from analysis
+2. Requires at least 95% docstring coverage to pass
+3. Excludes test files, documentation, and build artifacts from analysis
 
 This configuration:
 
@@ -78,9 +78,11 @@ This configuration:
 To run Interrogate on the project:
 
 === "Using poe tasks"
+
 `bash linenums="1"     # Run via poethepoet     uv run poe docstring-check     `
 
 === "Using direct commands"
+
 \`\`\`bash linenums="1"
 \# Run on the entire project
 uv run interrogate src/
@@ -138,25 +140,26 @@ Wrote badge to: ./interrogate_badge.svg
 Interrogate measures docstring coverage at different levels:
 
 1. **Module-level**: Docstrings at the top of Python files
-1. **Class-level**: Docstrings for class definitions
-1. **Method/Function-level**: Docstrings for methods and functions
-1. **Nested-level**: Docstrings for nested classes and functions (if configured)
+2. **Class-level**: Docstrings for class definitions
+3. **Method/Function-level**: Docstrings for methods and functions
+4. **Nested-level**: Docstrings for nested classes and functions (if configured)
 
 ## Best Practices
 
 1. **Write docstrings for all public APIs**: Ensure all public classes, methods, and functions have docstrings.
-1. **Use a consistent docstring style**: Follow a standard format like Google, NumPy, or reStructuredText.
-1. **Include examples in docstrings**: Add examples to show how to use the code.
-1. **Document parameters and return values**: Clearly describe inputs and outputs.
-1. **Set appropriate coverage thresholds**: Start with a reasonable threshold and gradually increase it.
-1. **Run regularly**: Include Interrogate in your pre-commit hooks to maintain documentation quality.
-1. **Add badges to README**: Display docstring coverage badges in your project README.
+2. **Use a consistent docstring style**: Follow a standard format like Google, NumPy, or reStructuredText.
+3. **Include examples in docstrings**: Add examples to show how to use the code.
+4. **Document parameters and return values**: Clearly describe inputs and outputs.
+5. **Set appropriate coverage thresholds**: Start with a reasonable threshold and gradually increase it.
+6. **Run regularly**: Include Interrogate in your pre-commit hooks to maintain documentation quality.
+7. **Add badges to README**: Display docstring coverage badges in your project README.
 
 ## Docstring Formats
 
 Interrogate works with any docstring format, including:
 
 === "Google Style"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """Summary line. # (1)
@@ -181,6 +184,7 @@ def function(param1, param2):
 ````
 
 === "NumPy Style"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """
@@ -206,6 +210,7 @@ Summary line.
 ````
 
 === "reStructuredText Style"
+
 \`\`\`python linenums="1"
 def function(param1, param2):
 """Summary line.

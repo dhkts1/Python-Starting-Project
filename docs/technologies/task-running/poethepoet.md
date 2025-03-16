@@ -33,11 +33,11 @@ uv pip install poethepoet
 In this project, Poethepoet is used to:
 
 1. Define common development tasks
-1. Run linters and formatters
-1. Execute tests
-1. Build documentation
-1. Generate code
-1. Provide a consistent interface for various tools
+2. Run linters and formatters
+3. Execute tests
+4. Build documentation
+5. Generate code
+6. Provide a consistent interface for various tools
 
 ## Configuration in This Project
 
@@ -46,12 +46,12 @@ Poethepoet is configured in the `pyproject.toml` file under the `[tool.poe.tasks
 ```toml
 [tool.poe.tasks]
 flynt = "flynt --aggressive --fail-on-change --quiet src tests"
-lint = {sequence = ["pyupgrade", "flynt", "pyright", "ruff", "ruff-format"]}
-mkdocs = {cmd = "mkdocs build"}
-mkdocs-serve = {cmd = "mkdocs serve"}
-mkinit = {sequence = ["mkinit-src", "mkinit-tests"]}
-mkinit-src = {cmd = "mkinit src --relative --lazy_loader_typed --black --recursive -w"}
-mkinit-tests = {cmd = "mkinit tests --relative --lazy_loader_typed --black --recursive -w"}
+lint = { sequence = ["pyupgrade", "flynt", "pyright", "ruff", "ruff-format"] }
+mkdocs = { cmd = "mkdocs build" }
+mkdocs-serve = { cmd = "mkdocs serve" }
+mkinit = { sequence = ["mkinit-src", "mkinit-tests"] }
+mkinit-src = { cmd = "mkinit src --relative --lazy_loader_typed --black --recursive -w" }
+mkinit-tests = { cmd = "mkinit tests --relative --lazy_loader_typed --black --recursive -w" }
 pre = "pre-commit run --all-files --show-diff-on-failure --verbose"
 pre-commit = "pre-commit run --all-files"
 pyright = "pyright"
@@ -115,25 +115,25 @@ task-name = "command --with --options"
 ### Command Tasks with Options
 
 ```toml
-task-name = {cmd = "command --with --options"}
+task-name = { cmd = "command --with --options" }
 ```
 
 ### Sequence Tasks
 
 ```toml
-task-name = {sequence = ["task1", "task2", "task3"]}
+task-name = { sequence = ["task1", "task2", "task3"] }
 ```
 
 ### Script Tasks
 
 ```toml
-task-name = {script = "python_module:function_name"}
+task-name = { script = "python_module:function_name" }
 ```
 
 ### Shell Tasks
 
 ```toml
-task-name = {shell = "echo 'Running in a shell'"}
+task-name = { shell = "echo 'Running in a shell'" }
 ```
 
 ## Advanced Features
@@ -143,7 +143,7 @@ task-name = {shell = "echo 'Running in a shell'"}
 You can define tasks that depend on other tasks:
 
 ```toml
-lint = {sequence = ["pyupgrade", "flynt", "pyright", "ruff", "ruff-format"]}
+lint = { sequence = ["pyupgrade", "flynt", "pyright", "ruff", "ruff-format"] }
 ```
 
 ### Task Arguments
@@ -159,16 +159,16 @@ poe ruff src/specific_module.py
 You can set environment variables for tasks:
 
 ```toml
-task-name = {cmd = "command", env = {VAR1 = "value1", VAR2 = "value2"}}
+task-name = { cmd = "command", env = { VAR1 = "value1", VAR2 = "value2" } }
 ```
 
 ## Best Practices
 
 1. **Group related tasks**: Use sequence tasks to group related operations.
-1. **Use descriptive task names**: Choose names that clearly indicate what the task does.
-1. **Document tasks**: Include comments in your pyproject.toml to explain complex tasks.
-1. **Prefer poe over direct commands**: Use poe tasks to provide a consistent interface.
-1. **Use task dependencies**: Break complex tasks into smaller, reusable tasks.
+2. **Use descriptive task names**: Choose names that clearly indicate what the task does.
+3. **Document tasks**: Include comments in your pyproject.toml to explain complex tasks.
+4. **Prefer poe over direct commands**: Use poe tasks to provide a consistent interface.
+5. **Use task dependencies**: Break complex tasks into smaller, reusable tasks.
 
 ## Troubleshooting
 
@@ -179,24 +179,24 @@ task-name = {cmd = "command", env = {VAR1 = "value1", VAR2 = "value2"}}
 If you get a "task not found" error:
 
 1. Check the spelling of the task name
-1. Ensure the task is defined in pyproject.toml
-1. Make sure you're running the command from the project root
+2. Ensure the task is defined in pyproject.toml
+3. Make sure you're running the command from the project root
 
 #### Task Fails with Error
 
 If a task fails with an error:
 
 1. Check the error message for details
-1. Run the command directly to see if it works outside of poe
-1. Check for environment or path issues
+2. Run the command directly to see if it works outside of poe
+3. Check for environment or path issues
 
 #### Arguments Not Passed Correctly
 
 If arguments aren't being passed correctly:
 
 1. Try quoting the arguments
-1. Use `--` to separate poe arguments from task arguments
-1. Check if the task is defined to accept arguments
+2. Use `--` to separate poe arguments from task arguments
+3. Check if the task is defined to accept arguments
 
 ## Resources
 

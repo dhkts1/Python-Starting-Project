@@ -32,9 +32,9 @@ uv pip install darglint
 In this project, Darglint is used to:
 
 1. Ensure docstrings accurately document function parameters and return values
-1. Maintain consistency between code and documentation
-1. Run as part of the pre-commit hooks and CI/CD pipeline
-1. Improve code quality and maintainability
+2. Maintain consistency between code and documentation
+3. Run as part of the pre-commit hooks and CI/CD pipeline
+4. Improve code quality and maintainability
 
 ## Configuration in This Project
 
@@ -115,29 +115,29 @@ def add_numbers(a: int, b: int) -> int:
 
 ## Error Codes
 
-| Code | Description |
-|--------|-------------------------------------------------------|
-| DAR001 | Missing parameter in docstring |
-| DAR002 | Excess parameter in docstring |
-| DAR003 | Missing return in docstring |
-| DAR004 | Excess return in docstring |
-| DAR101 | Missing parameter description in docstring |
-| DAR102 | Excess parameter description in docstring |
-| DAR103 | Missing return description in docstring |
-| DAR104 | Excess return description in docstring |
-| DAR201 | Missing "Yields" in docstring for generator function |
-| DAR202 | Excess "Yields" in docstring for non-generator function |
-| DAR301 | Missing "Raises" in docstring for function that raises|
+| Code   | Description                                                  |
+| ------ | ------------------------------------------------------------ |
+| DAR001 | Missing parameter in docstring                               |
+| DAR002 | Excess parameter in docstring                                |
+| DAR003 | Missing return in docstring                                  |
+| DAR004 | Excess return in docstring                                   |
+| DAR101 | Missing parameter description in docstring                   |
+| DAR102 | Excess parameter description in docstring                    |
+| DAR103 | Missing return description in docstring                      |
+| DAR104 | Excess return description in docstring                       |
+| DAR201 | Missing "Yields" in docstring for generator function         |
+| DAR202 | Excess "Yields" in docstring for non-generator function      |
+| DAR301 | Missing "Raises" in docstring for function that raises       |
 | DAR302 | Excess "Raises" in docstring for function that doesn't raise |
 
 ## Best Practices
 
 1. **Keep docstrings up to date**: Update docstrings whenever you change function signatures.
-1. **Be consistent with style**: Choose one docstring style (Google, Sphinx, or Numpy) and stick with it.
-1. **Document all parameters**: Include descriptions for all function parameters.
-1. **Document return values**: Always specify what your function returns.
-1. **Document exceptions**: Use the "Raises" section to document exceptions your function might raise.
-1. **Run Darglint regularly**: Include Darglint in your pre-commit hooks to catch issues early.
+2. **Be consistent with style**: Choose one docstring style (Google, Sphinx, or Numpy) and stick with it.
+3. **Document all parameters**: Include descriptions for all function parameters.
+4. **Document return values**: Always specify what your function returns.
+5. **Document exceptions**: Use the "Raises" section to document exceptions your function might raise.
+6. **Run Darglint regularly**: Include Darglint in your pre-commit hooks to catch issues early.
 
 ## Resources
 

@@ -33,10 +33,10 @@ uv pip install pytest pytest-cov pytest-asyncio pytest-xdist
 In this project, Pytest is used to:
 
 1. Write and run unit tests
-1. Measure code coverage
-1. Test asynchronous code
-1. Run tests in parallel
-1. Generate coverage reports
+2. Measure code coverage
+3. Test asynchronous code
+4. Run tests in parallel
+5. Generate coverage reports
 
 ## Configuration in This Project
 
@@ -109,6 +109,7 @@ uv run pytest --cov=src
 def test_addition():
     assert 1 + 1 == 2
 
+
 def test_string_methods():
     assert "hello".capitalize() == "Hello"
 ```
@@ -131,12 +132,15 @@ class TestMathFunctions:
 # test_example.py
 import pytest
 
+
 @pytest.fixture
 def sample_data():
     return {"name": "Test User", "age": 30}
 
+
 def test_user_name(sample_data):
     assert sample_data["name"] == "Test User"
+
 
 def test_user_age(sample_data):
     assert sample_data["age"] == 30
@@ -148,8 +152,10 @@ def test_user_age(sample_data):
 # test_example.py
 import pytest
 
+
 def divide(a, b):
     return a / b
+
 
 def test_division_by_zero():
     with pytest.raises(ZeroDivisionError):
@@ -162,14 +168,18 @@ def test_division_by_zero():
 # test_example.py
 import pytest
 
-@pytest.mark.parametrize("input,expected", [
-    (1, 1),
-    (2, 4),
-    (3, 9),
-    (4, 16),
-])
+
+@pytest.mark.parametrize(
+    "input,expected",
+    [
+        (1, 1),
+        (2, 4),
+        (3, 9),
+        (4, 16),
+    ],
+)
 def test_square(input, expected):
-    assert input ** 2 == expected
+    assert input**2 == expected
 ```
 
 ### Async Tests
@@ -177,6 +187,7 @@ def test_square(input, expected):
 ```python
 # test_example.py
 import pytest
+
 
 @pytest.mark.asyncio
 async def test_async_function():
@@ -216,12 +227,12 @@ uv run pytest -n 4     # Use 4 CPU cores
 ## Best Practices
 
 1. **Follow naming conventions**: Name test files with `test_` prefix and test functions with `test_` prefix.
-1. **Use fixtures for setup and teardown**: Avoid duplicating setup code across tests.
-1. **Keep tests independent**: Tests should not depend on the state from other tests.
-1. **Test one thing per test**: Each test should verify a single behavior.
-1. **Use parameterized tests**: Test multiple inputs with a single test function.
-1. **Aim for high coverage**: Strive for at least 80% code coverage.
-1. **Include both positive and negative tests**: Test both expected and error cases.
+2. **Use fixtures for setup and teardown**: Avoid duplicating setup code across tests.
+3. **Keep tests independent**: Tests should not depend on the state from other tests.
+4. **Test one thing per test**: Each test should verify a single behavior.
+5. **Use parameterized tests**: Test multiple inputs with a single test function.
+6. **Aim for high coverage**: Strive for at least 80% code coverage.
+7. **Include both positive and negative tests**: Test both expected and error cases.
 
 ## Troubleshooting
 
@@ -232,25 +243,25 @@ uv run pytest -n 4     # Use 4 CPU cores
 If tests aren't being discovered:
 
 1. Check that test files start with `test_`
-1. Check that test functions start with `test_`
-1. Check that test classes start with `Test`
-1. Check the `testpaths` configuration
+2. Check that test functions start with `test_`
+3. Check that test classes start with `Test`
+4. Check the `testpaths` configuration
 
 #### Fixture Errors
 
 If you're having issues with fixtures:
 
 1. Check fixture scope (function, class, module, session)
-1. Check for circular dependencies between fixtures
-1. Ensure fixtures are accessible to the tests that need them
+2. Check for circular dependencies between fixtures
+3. Ensure fixtures are accessible to the tests that need them
 
 #### Coverage Issues
 
 If you're having issues with coverage:
 
 1. Check that the source paths are correct
-1. Ensure you're not excluding relevant files
-1. Check for `.coveragerc` or configuration in `pyproject.toml`
+2. Ensure you're not excluding relevant files
+3. Check for `.coveragerc` or configuration in `pyproject.toml`
 
 ## Resources
 

@@ -31,6 +31,10 @@ package = true
 [dependency-groups]
 dev = [
   "mdformat>=0.7.22",
+  "mdformat-config>=0.1.3",
+  "mdformat-web>=0.1.1",
+  "mdformat-tables>=0.4.1",
+  "mdformat-frontmatter>=0.4.1",
   "codespell>=2.4.1",
   "flynt>=1.0.2",
   "mkdocs>=1.6.1",
@@ -56,11 +60,14 @@ dev = [
   "pytest-xdist>=3.6.1",
   "shellcheck-py>=0.10.0.1",
   "logging>=0.4.9.6",
+  "mdformat-mkdocs>=4.1.2",
+  "mdformat-gfm>=0.4.1",
 ]
 
 [tool.poe.tasks]
 flynt = "flynt --aggressive --fail-on-change --quiet src tests"
 lint = {sequence = ["pyupgrade", "flynt", "pyright", "ruff-check", "ruff-format"]}
+mdformat = {cmd = "mdformat --number docs"}
 mkdocs = {cmd = "mkdocs build --strict"}
 mkdocs-serve = {cmd = "mkdocs serve"}
 mkinit = {sequence = ["mkinit-src", "mkinit-tests"]}

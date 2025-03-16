@@ -9,8 +9,8 @@ Documentation is a critical aspect of any software project. Good documentation h
 This project uses several tools to maintain high-quality documentation:
 
 1. **MkDocs**: A fast, simple static site generator for building project documentation
-1. **MkDocs Material**: A modern theme for MkDocs that provides a responsive and feature-rich documentation experience
-1. **MkDocstrings**: A plugin for MkDocs that generates API documentation from Python docstrings
+2. **MkDocs Material**: A modern theme for MkDocs that provides a responsive and feature-rich documentation experience
+3. **MkDocstrings**: A plugin for MkDocs that generates API documentation from Python docstrings
 
 ## Documentation Structure
 
@@ -39,12 +39,12 @@ The documentation for this project is organized as follows:
 ## Best Practices
 
 1. **Document as you code**: Write documentation alongside your code, not as an afterthought
-1. **Keep documentation up-to-date**: Update documentation when code changes
-1. **Use consistent style**: Follow a consistent style throughout the documentation
-1. **Include examples**: Provide examples to illustrate how to use the code
-1. **Use admonitions for important information**: Highlight warnings, notes, and tips
-1. **Test documentation**: Ensure code examples in documentation work as expected
-1. **Get feedback**: Ask others to review your documentation for clarity and completeness
+2. **Keep documentation up-to-date**: Update documentation when code changes
+3. **Use consistent style**: Follow a consistent style throughout the documentation
+4. **Include examples**: Provide examples to illustrate how to use the code
+5. **Use admonitions for important information**: Highlight warnings, notes, and tips
+6. **Test documentation**: Ensure code examples in documentation work as expected
+7. **Get feedback**: Ask others to review your documentation for clarity and completeness
 
 ## Resources
 

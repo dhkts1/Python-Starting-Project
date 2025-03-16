@@ -33,9 +33,9 @@ uv pip install radon
 In this project, Radon is used to:
 
 1. Identify overly complex functions and methods
-1. Maintain reasonable complexity levels across the codebase
-1. Run as part of the pre-commit hooks and CI/CD pipeline
-1. Guide refactoring efforts to improve code maintainability
+2. Maintain reasonable complexity levels across the codebase
+3. Run as part of the pre-commit hooks and CI/CD pipeline
+4. Guide refactoring efforts to improve code maintainability
 
 ## Configuration in This Project
 
@@ -67,9 +67,11 @@ This configuration:
 To run Radon on the project:
 
 === "Using poe tasks"
+
 `bash linenums="1"     # Run via poethepoet     uv run poe radon     `
 
 === "Using direct commands"
+
 \`\`\`bash linenums="1"
 \# Run cyclomatic complexity analysis directly
 uv run radon cc src/
@@ -128,14 +130,14 @@ src/your_package/complex.py - C (65.32)
 
 Radon uses letter grades to rank complexity:
 
-| Rank | Complexity | Risk |
-|------|------------|-------------------------------------|
-| A | 1-5 | Low - simple block |
-| B | 6-10 | Low - well structured and stable |
-| C | 11-20 | Moderate - slightly complex |
-| D | 21-30 | More than moderate - more complex |
-| E | 31-40 | High - complex, alarming |
-| F | 41+ | Very high - error-prone, unstable |
+| Rank | Complexity | Risk                              |
+| ---- | ---------- | --------------------------------- |
+| A    | 1-5        | Low - simple block                |
+| B    | 6-10       | Low - well structured and stable  |
+| C    | 11-20      | Moderate - slightly complex       |
+| D    | 21-30      | More than moderate - more complex |
+| E    | 31-40      | High - complex, alarming          |
+| F    | 41+        | Very high - error-prone, unstable |
 
 ## Metrics Explained
 
@@ -171,18 +173,19 @@ A composite metric based on cyclomatic complexity, lines of code, and Halstead v
 ## Best Practices
 
 1. **Keep functions simple**: Aim for cyclomatic complexity below 10 (A-B rank).
-1. **Refactor complex code**: Break down functions with high complexity.
-1. **Write unit tests**: Complex functions need thorough testing.
-1. **Set thresholds in CI**: Fail builds if complexity exceeds acceptable levels.
-1. **Monitor trends**: Track complexity metrics over time to prevent degradation.
-1. **Use with other tools**: Combine with tools like Ruff and Xenon for comprehensive quality checks.
-1. **Focus on hotspots**: Prioritize refactoring the most complex parts of your codebase.
+2. **Refactor complex code**: Break down functions with high complexity.
+3. **Write unit tests**: Complex functions need thorough testing.
+4. **Set thresholds in CI**: Fail builds if complexity exceeds acceptable levels.
+5. **Monitor trends**: Track complexity metrics over time to prevent degradation.
+6. **Use with other tools**: Combine with tools like Ruff and Xenon for comprehensive quality checks.
+7. **Focus on hotspots**: Prioritize refactoring the most complex parts of your codebase.
 
 ## Refactoring Strategies
 
 When Radon identifies complex code, consider these refactoring strategies:
 
 === "Extract Method"
+
 \`\`\`python linenums="1"
 \# Before refactoring
 def complex_function(data):
@@ -215,6 +218,7 @@ def calculate_result(processed):
 ````
 
 === "Replace Conditionals"
+
 \`\`\`python linenums="1"
 \# Before refactoring (complex if/else chain)
 def get_discount(customer_type, order_total):

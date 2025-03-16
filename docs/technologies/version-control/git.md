@@ -40,11 +40,11 @@ git --version
 In this project, Git is used to:
 
 1. Track changes to source code and documentation
-1. Manage feature development through branches
-1. Facilitate code reviews through pull requests
-1. Integrate with pre-commit hooks for quality control
-1. Support the CI/CD pipeline
-1. Maintain a complete history of project development
+2. Manage feature development through branches
+3. Facilitate code reviews through pull requests
+4. Integrate with pre-commit hooks for quality control
+5. Support the CI/CD pipeline
+6. Maintain a complete history of project development
 
 ## Configuration in This Project
 
@@ -159,37 +159,37 @@ git commit -m "feat: add new feature"
 This project follows a feature branch workflow:
 
 1. **Main Branch**: The `main` branch contains stable, production-ready code
-1. **Feature Branches**: New features are developed in dedicated branches
-1. **Pull Requests**: Changes are reviewed through pull requests
-1. **Merge Strategy**: Feature branches are merged into `main` after review
-1. **Commit Messages**: Follows the Conventional Commits specification
+2. **Feature Branches**: New features are developed in dedicated branches
+3. **Pull Requests**: Changes are reviewed through pull requests
+4. **Merge Strategy**: Feature branches are merged into `main` after review
+5. **Commit Messages**: Follows the Conventional Commits specification
 
 ## Best Practices
 
 1. **Write meaningful commit messages**: Follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
-1. **Keep commits focused**: Each commit should represent a single logical change.
-1. **Pull before pushing**: Always pull the latest changes before pushing to avoid conflicts.
-1. **Use branches for features**: Develop new features in dedicated branches.
-1. **Review code before merging**: Use pull requests for code review.
-1. **Don't commit sensitive information**: Keep secrets, credentials, and personal data out of the repository.
-1. **Use .gitignore**: Properly configure `.gitignore` to exclude unnecessary files.
+2. **Keep commits focused**: Each commit should represent a single logical change.
+3. **Pull before pushing**: Always pull the latest changes before pushing to avoid conflicts.
+4. **Use branches for features**: Develop new features in dedicated branches.
+5. **Review code before merging**: Use pull requests for code review.
+6. **Don't commit sensitive information**: Keep secrets, credentials, and personal data out of the repository.
+7. **Use .gitignore**: Properly configure `.gitignore` to exclude unnecessary files.
 
 ## Common Git Patterns
 
 ### Feature Branch Workflow
 
 1. Create a feature branch from `main`
-1. Develop the feature in the branch
-1. Create a pull request for review
-1. Merge the feature branch into `main` after approval
+2. Develop the feature in the branch
+3. Create a pull request for review
+4. Merge the feature branch into `main` after approval
 
 ### Gitflow Workflow
 
 1. `main` branch for production releases
-1. `develop` branch for development
-1. Feature branches for new features
-1. Release branches for preparing releases
-1. Hotfix branches for urgent fixes
+2. `develop` branch for development
+3. Feature branches for new features
+4. Release branches for preparing releases
+5. Hotfix branches for urgent fixes
 
 ## Resources
 

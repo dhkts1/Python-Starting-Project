@@ -31,9 +31,9 @@ uv pip install pyright
 In this project, Pyright is used to:
 
 1. Verify type correctness of the codebase
-1. Catch potential type errors before runtime
-1. Enforce type safety standards
-1. Provide type information for IDE features
+2. Catch potential type errors before runtime
+3. Enforce type safety standards
+4. Provide type information for IDE features
 
 It's configured to run in strict mode, which enforces comprehensive type checking.
 
@@ -114,6 +114,7 @@ is_active: bool = True
 def greet(name: str) -> str:
     return f"Hello, {name}!"
 
+
 # Function with optional parameters
 def greet_optional(name: str, title: str | None = None) -> str:
     if title:
@@ -140,11 +141,11 @@ class User:
 ## Best Practices
 
 1. **Add type annotations to public APIs**: At minimum, annotate function parameters and return types for public functions and methods.
-1. **Use type aliases for complex types**: Create type aliases for complex types to improve readability.
-1. **Leverage Union types for flexibility**: Use Union types (e.g., `str | None`) for parameters that can accept multiple types.
-1. **Use TypedDict for dictionary structures**: Define TypedDict classes for dictionaries with specific structures.
-1. **Add Generic types for containers**: Use Generic types for collections to specify contained types.
-1. **Gradually add types**: Start with the most critical parts of your codebase and gradually add types to the rest.
+2. **Use type aliases for complex types**: Create type aliases for complex types to improve readability.
+3. **Leverage Union types for flexibility**: Use Union types (e.g., `str | None`) for parameters that can accept multiple types.
+4. **Use TypedDict for dictionary structures**: Define TypedDict classes for dictionaries with specific structures.
+5. **Add Generic types for containers**: Use Generic types for collections to specify contained types.
+6. **Gradually add types**: Start with the most critical parts of your codebase and gradually add types to the rest.
 
 ## Troubleshooting
 
@@ -155,24 +156,24 @@ class User:
 If you get type errors from third-party libraries:
 
 1. Check if type stubs are available: `uv pip install types-package-name`
-1. Add the library to the exclude list in `pyproject.toml`
-1. Use `# type: ignore` comments for specific imports
+2. Add the library to the exclude list in `pyproject.toml`
+3. Use `# type: ignore` comments for specific imports
 
 #### "Cannot find module" Errors
 
 If Pyright can't find a module:
 
 1. Ensure the module is installed
-1. Check your project structure
-1. Add the module to the Python path in your configuration
+2. Check your project structure
+3. Add the module to the Python path in your configuration
 
 #### "Type is unknown" Errors
 
 If you get "type is unknown" errors:
 
 1. Add type annotations to the relevant variables or functions
-1. Use `Any` as a last resort for truly dynamic types
-1. Configure specific "reportUnknown\*" settings in `pyproject.toml`
+2. Use `Any` as a last resort for truly dynamic types
+3. Configure specific "reportUnknown\*" settings in `pyproject.toml`
 
 ## Resources
 

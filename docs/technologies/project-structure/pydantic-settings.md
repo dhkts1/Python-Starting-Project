@@ -34,9 +34,9 @@ uv pip install pydantic-settings
 In this project, Pydantic-Settings is used to:
 
 1. Define and validate application configuration
-1. Load settings from environment variables
-1. Provide type-safe access to configuration values
-1. Support different environments (development, testing, production)
+2. Load settings from environment variables
+3. Provide type-safe access to configuration values
+4. Support different environments (development, testing, production)
 
 ## Configuration in This Project
 
@@ -104,6 +104,7 @@ class Settings(BaseSettings):
         extra="ignore",
     )
 
+
 # Create a global settings instance
 settings = Settings()
 ```
@@ -115,11 +116,9 @@ settings = Settings()
 ```python
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
+
 class AppSettings(BaseSettings):
-    model_config = SettingsConfigDict(
-        env_file=".env",
-        env_prefix="APP_"
-    )
+    model_config = SettingsConfigDict(env_file=".env", env_prefix="APP_")
 
     # Settings with types and default values
     debug: bool = False
@@ -146,6 +145,7 @@ logger.info("Starting %s v%s", settings.APP_NAME, settings.APP_VERSION)
 
 ```python
 from pydantic_settings import BaseSettings
+
 
 class Settings(BaseSettings):
     environment: str = "development"
@@ -192,11 +192,11 @@ model_config = SettingsConfigDict(
 In the case where a value is specified for the same `Settings` field in multiple ways, the selected value is determined as follows (in descending order of priority):
 
 1. If `cli_parse_args` is enabled, arguments passed in at the CLI
-1. Arguments passed to the `Settings` class initializer
-1. Environment variables
-1. Variables loaded from a dotenv (`.env`) file
-1. Variables loaded from the secrets directory
-1. Default field values for the `Settings` model
+2. Arguments passed to the `Settings` class initializer
+3. Environment variables
+4. Variables loaded from a dotenv (`.env`) file
+5. Variables loaded from the secrets directory
+6. Default field values for the `Settings` model
 
 This priority order ensures that values can be overridden in a predictable way, with more explicit sources (like CLI arguments and initializer arguments) taking precedence over less explicit ones (like environment variables and dotenv files).
 
@@ -207,7 +207,7 @@ If you need to load multiple dotenv files, you can pass multiple file paths as a
 ```python
 model_config = SettingsConfigDict(
     # `.env.prod` takes priority over `.env`
-    env_file=('.env', '.env.prod')
+    env_file=(".env", ".env.prod")
 )
 ```
 
@@ -220,10 +220,10 @@ This is useful for having a base configuration in one file and environment-speci
 ```python
 # Our settings support environment variables without a prefix
 # For example, with these environment variables:
-APP_NAME="Environment App"
-APP_VERSION="2.0.0"
-DEBUG=true
-LOG_LEVEL="DEBUG"
+APP_NAME = "Environment App"
+APP_VERSION = "2.0.0"
+DEBUG = true
+LOG_LEVEL = "DEBUG"
 
 # The settings would be:
 settings = Settings()
@@ -239,12 +239,14 @@ assert settings.LOG_LEVEL == "DEBUG"
 from pydantic import BaseModel
 from pydantic_settings import BaseSettings
 
+
 class DatabaseSettings(BaseModel):
     host: str = "localhost"
     port: int = 5432
     user: str = "user"
     password: str = "password"
     name: str = "database"
+
 
 class AppSettings(BaseSettings):
     debug: bool = False
@@ -254,12 +256,12 @@ class AppSettings(BaseSettings):
 ## Best Practices
 
 1. **Use environment variables**: Store configuration in environment variables, especially for secrets.
-1. **Provide defaults**: Set sensible default values for non-sensitive settings.
-1. **Use validation**: Take advantage of Pydantic's validation to ensure settings are correct.
-1. **Separate concerns**: Split settings into logical groups using nested models.
-1. **Document settings**: Add docstrings to explain what each setting does.
-1. **Use computed properties**: Add properties for derived values to keep settings DRY.
-1. **Keep secrets secure**: Never hardcode sensitive information; use environment variables or secret management tools.
+2. **Provide defaults**: Set sensible default values for non-sensitive settings.
+3. **Use validation**: Take advantage of Pydantic's validation to ensure settings are correct.
+4. **Separate concerns**: Split settings into logical groups using nested models.
+5. **Document settings**: Add docstrings to explain what each setting does.
+6. **Use computed properties**: Add properties for derived values to keep settings DRY.
+7. **Keep secrets secure**: Never hardcode sensitive information; use environment variables or secret management tools.
 
 ## Advanced Features
 
@@ -269,6 +271,7 @@ class AppSettings(BaseSettings):
 from pydantic import Field
 from pydantic_settings import BaseSettings
 from pathlib import Path
+
 
 class Settings(BaseSettings):
     # Simple field with description
@@ -295,12 +298,13 @@ class Settings(BaseSettings):
 Pydantic-Settings v2 provides integrated CLI support, making it easy to define CLI applications using Pydantic models. There are two primary use cases:
 
 1. Using a CLI to override fields in Pydantic models
-1. Using Pydantic models to define CLIs
+2. Using Pydantic models to define CLIs
 
 To enable CLI parsing, set the `cli_parse_args` flag in the model configuration:
 
 ```python
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
 
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(cli_parse_args=True)
@@ -324,6 +328,7 @@ If the default order of priority doesn't match your needs, you can change it by 
 ```python
 from typing import Tuple, Type
 from pydantic_settings import BaseSettings, PydanticBaseSettingsSource
+
 
 class Settings(BaseSettings):
     # Your settings fields here...

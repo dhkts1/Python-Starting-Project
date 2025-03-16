@@ -41,9 +41,9 @@ Mkinit is configured as a poethepoet task in the `pyproject.toml` file:
 
 ```toml
 [tool.poe.tasks]
-mkinit = {sequence = ["mkinit-src", "mkinit-tests"]}
-mkinit-src = {cmd = "mkinit src --relative --lazy_loader_typed --black --recursive -w"}
-mkinit-tests = {cmd = "mkinit tests --relative --lazy_loader_typed --black --recursive -w"}
+mkinit = { sequence = ["mkinit-src", "mkinit-tests"] }
+mkinit-src = { cmd = "mkinit src --relative --lazy_loader_typed --black --recursive -w" }
+mkinit-tests = { cmd = "mkinit tests --relative --lazy_loader_typed --black --recursive -w" }
 ```
 
 This configuration:
@@ -106,9 +106,9 @@ Mkinit supports several command-line options:
 ## Best Practices
 
 1. **Run mkinit after adding new modules**: Whenever you add a new module to the project, run mkinit to update the `__init__.py` files.
-1. **Use version control**: Always commit `__init__.py` files to version control after generating them.
-1. **Include in pre-commit hooks**: Consider adding mkinit to your pre-commit hooks to ensure `__init__.py` files are always up to date.
-1. **Use with lazy loading**: Combine mkinit with lazy loading for optimal import performance.
+2. **Use version control**: Always commit `__init__.py` files to version control after generating them.
+3. **Include in pre-commit hooks**: Consider adding mkinit to your pre-commit hooks to ensure `__init__.py` files are always up to date.
+4. **Use with lazy loading**: Combine mkinit with lazy loading for optimal import performance.
 
 ## Troubleshooting
 
@@ -119,16 +119,16 @@ Mkinit supports several command-line options:
 If you encounter circular import errors:
 
 1. Restructure your code to avoid circular dependencies
-1. Use lazy loading to break circular dependencies
-1. Use conditional imports inside functions
+2. Use lazy loading to break circular dependencies
+3. Use conditional imports inside functions
 
 #### Missing Exports
 
 If some exports are missing from the generated `__init__.py`:
 
 1. Ensure the exports are properly defined in the module
-1. Check that the module is in the correct directory
-1. Run mkinit with the `--verbose` flag to see what's being processed
+2. Check that the module is in the correct directory
+3. Run mkinit with the `--verbose` flag to see what's being processed
 
 ## Resources
 

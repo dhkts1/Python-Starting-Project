@@ -33,20 +33,20 @@ uv pip install shellcheck-py
 In this project, Shellcheck-py is used to:
 
 1. Validate shell scripts in the repository
-1. Ensure shell scripts follow best practices
-1. Prevent common shell scripting bugs
-1. Run as part of the pre-commit hooks and CI/CD pipeline
+2. Ensure shell scripts follow best practices
+3. Prevent common shell scripting bugs
+4. Run as part of the pre-commit hooks and CI/CD pipeline
 
 ## Configuration in This Project
 
 Shellcheck-py is configured in the `.pre-commit-config.yaml` file:
 
 ```yaml
-- repo: https://github.com/shellcheck-py/shellcheck-py
-  rev: v0.9.0.5
-  hooks:
-    - id: shellcheck
-      args: ["--severity=warning"]
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.9.0.5
+    hooks:
+      - id: shellcheck
+        args: [--severity=warning]
 ```
 
 This configuration:
@@ -113,32 +113,32 @@ eval "command ${user_input@Q}"
 Shellcheck uses different severity levels for issues:
 
 1. **Error**: Severe issues that are likely to cause incorrect behavior
-1. **Warning**: Issues that may cause problems in certain situations
-1. **Info**: Suggestions for better practices
-1. **Style**: Style recommendations
+2. **Warning**: Issues that may cause problems in certain situations
+3. **Info**: Suggestions for better practices
+4. **Style**: Style recommendations
 
 ## Common Error Codes
 
-| Code | Description |
-|---------|-------------------------------------------------------|
-| SC1000s | Shell parser issues |
-| SC2000s | Common shell script issues |
-| SC2086 | Double quote to prevent globbing and word splitting |
-| SC2046 | Quote to prevent word splitting/globbing |
-| SC2164 | Use `cd ... || exit` in case cd fails |
-| SC2016 | Single quotes don't expand variables |
-| SC2034 | Variable appears unused |
-| SC2155 | Declare and assign separately for better error handling |
-| SC3000s | Shell-specific issues (bash, dash, ksh) |
+| Code    | Description                                             |
+| ------- | ------------------------------------------------------- |
+| SC1000s | Shell parser issues                                     |
+| SC2000s | Common shell script issues                              |
+| SC2086  | Double quote to prevent globbing and word splitting     |
+| SC2046  | Quote to prevent word splitting/globbing                |
+| SC2164  | Use \`cd ...                                            |
+| SC2016  | Single quotes don't expand variables                    |
+| SC2034  | Variable appears unused                                 |
+| SC2155  | Declare and assign separately for better error handling |
+| SC3000s | Shell-specific issues (bash, dash, ksh)                 |
 
 ## Best Practices
 
 1. **Fix all errors**: Address all error-level issues before committing.
-1. **Review warnings**: Most warnings should be fixed unless there's a good reason not to.
-1. **Use shellcheck directives**: Use `# shellcheck disable=SC2086` for intentional exceptions.
-1. **Document exceptions**: When disabling checks, add a comment explaining why.
-1. **Run regularly**: Include shellcheck in your pre-commit hooks.
-1. **Learn from issues**: Use shellcheck as a learning tool to improve your shell scripting skills.
+2. **Review warnings**: Most warnings should be fixed unless there's a good reason not to.
+3. **Use shellcheck directives**: Use `# shellcheck disable=SC2086` for intentional exceptions.
+4. **Document exceptions**: When disabling checks, add a comment explaining why.
+5. **Run regularly**: Include shellcheck in your pre-commit hooks.
+6. **Learn from issues**: Use shellcheck as a learning tool to improve your shell scripting skills.
 
 ## Resources
 

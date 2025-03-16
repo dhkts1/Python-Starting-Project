@@ -31,8 +31,8 @@ uv pip install pyupgrade
 In this project, Pyupgrade is used to:
 
 1. Automatically upgrade Python syntax to Python 3.11+
-1. Maintain modern Python syntax across the codebase
-1. Run as part of the pre-commit hooks and CI/CD pipeline
+2. Maintain modern Python syntax across the codebase
+3. Run as part of the pre-commit hooks and CI/CD pipeline
 
 ## Configuration in This Project
 
@@ -116,6 +116,7 @@ Before:
 
 ```python
 from typing import List, Dict, Optional
+
 names: List[str] = ["Alice", "Bob"]
 ages: Dict[str, int] = {"Alice": 30, "Bob": 25}
 maybe_name: Optional[str] = None
@@ -132,9 +133,9 @@ maybe_name: str | None = None
 ## Best Practices
 
 1. **Run Pyupgrade regularly**: Include Pyupgrade in your pre-commit hooks to ensure consistent syntax.
-1. **Specify the correct Python version**: Use the appropriate `--pyXX-plus` flag for your project's minimum Python version.
-1. **Combine with other tools**: Use Pyupgrade alongside tools like Ruff and Flynt for comprehensive code modernization.
-1. **Review changes**: Some syntax upgrades might change behavior in subtle ways, so review changes carefully.
+2. **Specify the correct Python version**: Use the appropriate `--pyXX-plus` flag for your project's minimum Python version.
+3. **Combine with other tools**: Use Pyupgrade alongside tools like Ruff and Flynt for comprehensive code modernization.
+4. **Review changes**: Some syntax upgrades might change behavior in subtle ways, so review changes carefully.
 
 ## Resources
 
