@@ -16,6 +16,8 @@ Welcome to the Python Starting Project documentation! This project provides a co
 ![Complexity](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B7%5D.message&label=complexity&logo=codacy&color=%24.badges%5B7%5D.color)
 ![Maintainability](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B8%5D.message&label=maintainability&logo=codeclimate&color=%24.badges%5B8%5D.color)
 ![MkDocs](https://img.shields.io/badge/documentation-MkDocs-blue.svg?logo=markdown)
+![Gitleaks](https://img.shields.io/badge/protected%20by-gitleaks-blue?logo=git)
+![UV](https://img.shields.io/badge/package%20manager-uv-blue?logo=python)
 
 <!-- mdformat-skip-end -->
 
