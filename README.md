@@ -12,10 +12,9 @@ Welcome to the Python Starting Project documentation! This project provides a co
 ![Typing](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B3%5D.message&label=typing&logo=python&color=%24.badges%5B3%5D.color)
 ![Dead Code](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B4%5D.message&label=dead%20code&logo=python&color=%24.badges%5B4%5D.color)
 ![Security](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B5%5D.message&label=security&logo=shieldsdotio&color=%24.badges%5B5%5D.color)
-![Dependencies](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B6%5D.message&label=dependencies&logo=dependabot&color=%24.badges%5B6%5D.color)
-![Documentation](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B7%5D.message&label=docs&logo=readthedocs&color=%24.badges%5B7%5D.color)
-![Complexity](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B8%5D.message&label=complexity&logo=codacy&color=%24.badges%5B8%5D.color)
-![Maintainability](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B9%5D.message&label=maintainability&logo=codeclimate&color=%24.badges%5B9%5D.color)
+![Docs](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B6%5D.message&label=docs&logo=readthedocs&color=%24.badges%5B6%5D.color)
+![Complexity](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B7%5D.message&label=complexity&logo=codacy&color=%24.badges%5B7%5D.color)
+![Maintainability](https://img.shields.io/badge/dynamic/json?url=https://gist.githubusercontent.com/dhkts1/ffa9b5234248225d681ef8ac4fe0a7e1/raw/badges.json&query=%24.badges%5B8%5D.message&label=maintainability&logo=codeclimate&color=%24.badges%5B8%5D.color)
 ![MkDocs](https://img.shields.io/badge/documentation-MkDocs-blue.svg?logo=markdown)
 
 <!-- mdformat-skip-end -->
