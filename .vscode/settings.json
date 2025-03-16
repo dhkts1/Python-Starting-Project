@@ -1,0 +1,50 @@
+{
+    "files.watcherExclude": {
+        "**/.git/objects/**": true,
+        "**/.git/subtree-cache/**": true,
+        "**/.hg/store/**": true,
+        "**/node_modules/*/**": true,
+        "**/.ruff_cache/**": true,
+        "**/__pycache__/**": true,
+        "**/.pytest_cache/**": true,
+        "**/.venv/**": true,
+        "**/.history/": true,
+    },
+    "files.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.ruff_cache": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.venv": true,
+    },
+    "search.exclude": {
+        "**/.git": true,
+        "**/node_modules": true,
+        "**/.ruff_cache": true,
+        "**/__pycache__": true,
+        "**/.pytest_cache": true,
+        "**/.venv": true,
+        "**/uv.lock": true,
+        "**/.history/": true,
+        "**/*.pyi": true,
+    },
+    "ruff.enable": true,
+    "ruff.organizeImports": true,
+    "editor.formatOnSave": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll.ruff": "explicit",
+        "source.organizeImports.ruff": "explicit"
+    },
+    "python.testing.pytestEnabled": true,
+    "python.testing.unittestEnabled": false,
+    "python.testing.pytestArgs": [
+        "tests"
+    ],
+    "python.analysis.exclude": [
+        "**/__init__.py"
+    ],
+    "python.analysis.typeCheckingMode": "strict",
+    "python.analysis.diagnosticMode": "workspace",
+    "editor.guides.indentation": true
+}

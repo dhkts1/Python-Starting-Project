@@ -1,0 +1,494 @@
+name: CI
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+# Only run this workflow when ENABLE_BADGES is set to 'true' in repository variables
+jobs:
+  check-if-enabled:
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.check.outputs.enabled }}
+    steps:
+      - id: check
+        run: |
+          if [[ "${ENABLE_BADGES:-${{ vars.ENABLE_BADGES }}}" == "true" ]]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::Badges workflow is disabled. Set ENABLE_BADGES repository variable to 'true' to enable it."
+          fi
+
+  # Run checks on pull requests without generating badges
+  checks-only:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      # Cache pre-commit hooks
+      - name: Cache pre-commit hooks
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-precommit-
+
+      # Run pre-commit hooks
+      - name: Run pre-commit hooks
+        id: pre-commit
+        run: uv run pre-commit run --all-files
+
+  # Run checks and generate badges only on push to main
+  checks-and-badges:
+    needs: check-if-enabled
+    if: needs.check-if-enabled.outputs.enabled == 'true' && github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
+        with:
+          enable-cache: true
+          cache-dependency-glob: "pyproject.toml"
+
+      - name: Set up Python
+        id: setup-python
+        uses: actions/setup-python@v5
+        with:
+          python-version-file: "pyproject.toml"
+      - name: Check Python dependencies
+        run: uv lock --check
+
+      - name: Install dependencies
+        run: uv sync --all-extras --dev
+
+      # Cache pre-commit hooks
+      - name: Cache pre-commit hooks
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/pre-commit
+          key: ${{ runner.os }}-precommit-${{ hashFiles('.pre-commit-config.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-precommit-
+
+      # Run pre-commit hooks and capture status
+      - name: Run pre-commit hooks
+        id: pre-commit
+        run: uv run pre-commit run --all-files
+
+      - name: Set pre-commit status
+        run: |
+          if [ "${{ steps.pre-commit.outcome }}" == 'success' ]; then
+            {
+              echo "PRE_COMMIT_STATUS=passing"
+              echo "PRE_COMMIT_COLOR=green"
+            } >> "$GITHUB_ENV"
+          else
+            # Count failed hooks
+            FAILED_HOOKS=$(echo "${{ steps.pre-commit.outputs.stdout }}" | grep -c "Failed" || echo "0")
+            if [ "$FAILED_HOOKS" -gt 0 ]; then
+              {
+                echo "PRE_COMMIT_STATUS=failing ($FAILED_HOOKS issues)"
+                echo "PRE_COMMIT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "PRE_COMMIT_STATUS=failing"
+                echo "PRE_COMMIT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            fi
+          fi
+
+      # Extract individual check statuses for badges
+      - name: Run Ruff check
+        id: ruff
+        run: uv run poe ruff-check
+
+      - name: Run Ruff format
+        id: ruff-format
+        run: uv run poe ruff-format
+
+      - name: Set Ruff status
+        run: |
+          if [ "${{ steps.ruff.outcome }}" == 'success' ]; then
+            {
+              echo "RUFF_STATUS=passing (0 issues)"
+              echo "RUFF_COLOR=green"
+            } >> "$GITHUB_ENV"
+          else
+            # Try to extract the number of issues
+            ISSUES=$(echo "${{ steps.ruff.outputs.stderr }}" | grep -o "Found [0-9]\\+ error" | grep -o "[0-9]\\+" || echo "")
+            if [ -n "$ISSUES" ]; then
+              {
+                echo "RUFF_STATUS=failing ($ISSUES issues)"
+                echo "RUFF_COLOR=red"
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "RUFF_STATUS=failing"
+                echo "RUFF_COLOR=red"
+              } >> "$GITHUB_ENV"
+            fi
+          fi
+
+      - name: Run Pyright
+        id: pyright
+        run: uv run poe pyright
+
+      - name: Set Pyright status
+        run: |
+          if [ "${{ steps.pyright.outcome }}" == 'success' ]; then
+            {
+              echo "PYRIGHT_STATUS=passing (0 errors)"
+              echo "PYRIGHT_COLOR=green"
+            } >> "$GITHUB_ENV"
+          else
+            # Try to extract the number of errors
+            ERRORS=$(echo "${{ steps.pyright.outputs.stderr }}" | grep -o "[0-9]\\+ error" | grep -o "[0-9]\\+" || echo "")
+            if [ -n "$ERRORS" ]; then
+              {
+                echo "PYRIGHT_STATUS=failing ($ERRORS errors)"
+                echo "PYRIGHT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "PYRIGHT_STATUS=failing"
+                echo "PYRIGHT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            fi
+          fi
+
+      - name: Run Vulture
+        id: vulture
+        run: uv run poe vulture
+
+      - name: Set Vulture status
+        run: |
+          VULTURE_OUTPUT="${{ steps.vulture.outputs.stdout }}"
+          if [[ "${{ steps.vulture.outcome }}" == 'success' ]]; then
+            {
+              echo "VULTURE_STATUS=0% dead code"
+              echo "VULTURE_COLOR=green"
+            } >> "$GITHUB_ENV"
+          else
+            # Try to extract percentage if available
+            UNUSED_CODE=$(echo "$VULTURE_OUTPUT" | grep -o '[0-9]\+% confidence' | head -1 | grep -o '[0-9]\+' || echo "")
+            if [ -n "$UNUSED_CODE" ]; then
+              {
+                echo "VULTURE_STATUS=$UNUSED_CODE% dead code"
+                if [ "$UNUSED_CODE" -gt 10 ]; then
+                  echo "VULTURE_COLOR=red"
+                elif [ "$UNUSED_CODE" -gt 5 ]; then
+                  echo "VULTURE_COLOR=yellow"
+                else
+                  echo "VULTURE_COLOR=green"
+                fi
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "VULTURE_STATUS=failing"
+                echo "VULTURE_COLOR=red"
+              } >> "$GITHUB_ENV"
+            fi
+          fi
+
+      # Run tests with coverage
+      - name: Run tests with coverage
+        id: coverage
+        run: uv run poe test-coverage
+
+      - name: Extract coverage data
+        run: |
+          if [ -f coverage.xml ]; then
+            COVERAGE=$(python -c "import xml.etree.ElementTree as ET; print(ET.parse('coverage.xml').getroot().get('line-rate'))")
+            COVERAGE_PCT=$(python -c "print(f'{float(\"$COVERAGE\")*100:.2f}%')")
+
+            # Convert to numeric for comparison
+            COVERAGE_NUM=$(echo "$COVERAGE" | sed 's/%//' | sed 's/\..*//')
+
+            {
+              echo "COVERAGE=$COVERAGE_PCT"
+
+              if [ "$COVERAGE_NUM" -lt 50 ]; then
+                echo "COVERAGE_COLOR=red"
+                echo "COVERAGE_DESCRIPTION=insufficient"
+              elif [ "$COVERAGE_NUM" -lt 65 ]; then
+                echo "COVERAGE_COLOR=yellow"
+                echo "COVERAGE_DESCRIPTION=partial"
+              elif [ "$COVERAGE_NUM" -lt 85 ]; then
+                echo "COVERAGE_COLOR=green"
+                echo "COVERAGE_DESCRIPTION=good"
+              else
+                echo "COVERAGE_COLOR=brightgreen"
+                echo "COVERAGE_DESCRIPTION=excellent"
+              fi
+            } >> "$GITHUB_ENV"
+          else
+            {
+              echo "COVERAGE=unknown"
+              echo "COVERAGE_COLOR=red"
+              echo "COVERAGE_DESCRIPTION=missing"
+            } >> "$GITHUB_ENV"
+          fi
+
+      # Run bandit security check
+      - name: Run Bandit
+        id: bandit
+        run: uv run poe bandit
+
+      - name: Set Bandit status
+        run: |
+          if [ "${{ steps.bandit.outcome }}" == 'success' ]; then
+            {
+              echo "BANDIT_STATUS=secure (0 issues)"
+              echo "BANDIT_COLOR=green"
+            } >> "$GITHUB_ENV"
+          else
+            # Try to extract the number of issues
+            ISSUES=$(echo "${{ steps.bandit.outputs.stdout }}" | grep -o "Issue: [0-9]\\+" | wc -l || echo "")
+            if [ -n "$ISSUES" ] && [ "$ISSUES" -gt 0 ]; then
+              {
+                echo "BANDIT_STATUS=issues found ($ISSUES)"
+                echo "BANDIT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "BANDIT_STATUS=issues found"
+                echo "BANDIT_COLOR=red"
+              } >> "$GITHUB_ENV"
+            fi
+          fi
+
+      # Run interrogate for docstring coverage
+      - name: Run Interrogate
+        id: interrogate
+        run: uv run poe interrogate
+
+      - name: Set Interrogate status
+        run: |
+          if [ "${{ steps.interrogate.outcome }}" == 'success' ]; then
+            # Try to extract the coverage percentage
+            DOCS_COVERAGE=$(echo "${{ steps.interrogate.outputs.stdout }}" | grep -o '[0-9]\+\.[0-9]\+%' | head -1 || echo "")
+            if [ -n "$DOCS_COVERAGE" ]; then
+              # Try to extract the number of missing docstrings
+              MISSING=$(echo "${{ steps.interrogate.outputs.stdout }}" | grep -o 'missing [0-9]\+ docstring' | grep -o '[0-9]\+' || echo "")
+
+              # Extract numeric value for comparison
+              DOCS_NUM=$(echo "$DOCS_COVERAGE" | sed 's/%//' | sed 's/\..*//')
+
+              {
+                if [ -n "$MISSING" ]; then
+                  echo "INTERROGATE_STATUS=$DOCS_COVERAGE ($MISSING missing)"
+                else
+                  echo "INTERROGATE_STATUS=$DOCS_COVERAGE"
+                fi
+
+                if [ "$DOCS_NUM" -lt 60 ]; then
+                  echo "INTERROGATE_COLOR=red"
+                elif [ "$DOCS_NUM" -lt 80 ]; then
+                  echo "INTERROGATE_COLOR=yellow"
+                else
+                  echo "INTERROGATE_COLOR=green"
+                fi
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "INTERROGATE_STATUS=passing (100%)"
+                echo "INTERROGATE_COLOR=green"
+              } >> "$GITHUB_ENV"
+            fi
+          else
+            {
+              echo "INTERROGATE_STATUS=failing"
+              echo "INTERROGATE_COLOR=red"
+            } >> "$GITHUB_ENV"
+          fi
+
+      # Run radon for code complexity
+      - name: Run Radon
+        id: radon
+        run: uv run poe radon
+
+      - name: Set Radon status
+        run: |
+          if [ "${{ steps.radon.outcome }}" == 'success' ]; then
+            # Try to extract the average complexity
+            COMPLEXITY=$(echo "${{ steps.radon.outputs.stdout }}" | grep -o 'Average complexity: [A-F]' | cut -d' ' -f3 || echo "")
+            if [ -n "$COMPLEXITY" ]; then
+              # Try to extract the actual complexity value
+              COMPLEXITY_VALUE=$(echo "${{ steps.radon.outputs.stdout }}" | grep -o 'Average complexity: [0-9.]\+' | cut -d' ' -f3 || echo "")
+
+              {
+                if [ -n "$COMPLEXITY_VALUE" ]; then
+                  echo "RADON_STATUS=Grade $COMPLEXITY ($COMPLEXITY_VALUE)"
+                else
+                  echo "RADON_STATUS=Grade $COMPLEXITY"
+                fi
+
+                if [ "$COMPLEXITY" = "A" ] || [ "$COMPLEXITY" = "B" ]; then
+                  echo "RADON_COLOR=green"
+                elif [ "$COMPLEXITY" = "C" ]; then
+                  echo "RADON_COLOR=yellow"
+                else
+                  echo "RADON_COLOR=red"
+                fi
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "RADON_STATUS=passing"
+                echo "RADON_COLOR=green"
+              } >> "$GITHUB_ENV"
+              fi
+          else
+            {
+              echo "RADON_STATUS=failing"
+              echo "RADON_COLOR=red"
+            } >> "$GITHUB_ENV"
+          fi
+
+      # Run xenon for code maintainability
+      - name: Run Xenon
+        id: xenon
+        run: uv run poe xenon
+
+      - name: Set Xenon status
+        run: |
+          if [ "${{ steps.xenon.outcome }}" == 'success' ]; then
+            # Try to extract metrics if available
+            RANK=$(echo "${{ steps.xenon.outputs.stdout }}" | grep -o 'Rank: [A-F]' | cut -d' ' -f2 || echo "")
+            if [ -n "$RANK" ]; then
+              {
+                echo "XENON_STATUS=Grade $RANK"
+
+                if [ "$RANK" = "A" ] || [ "$RANK" = "B" ]; then
+                  echo "XENON_COLOR=green"
+                elif [ "$RANK" = "C" ]; then
+                  echo "XENON_COLOR=yellow"
+                else
+                  echo "XENON_COLOR=red"
+                fi
+              } >> "$GITHUB_ENV"
+            else
+              {
+                echo "XENON_STATUS=maintainable"
+                echo "XENON_COLOR=green"
+              } >> "$GITHUB_ENV"
+            fi
+          else
+            {
+              echo "XENON_STATUS=needs refactoring"
+              echo "XENON_COLOR=red"
+            } >> "$GITHUB_ENV"
+          fi
+
+      # Create a single JSON file with all badge data
+      - name: Prepare badge data
+        run: |
+          cat > badges.json << EOF
+          {
+            "schemaVersion": 1,
+            "badges": [
+              {
+                "label": "pre-commit",
+                "message": "${{ env.PRE_COMMIT_STATUS }}",
+                "color": "${{ env.PRE_COMMIT_COLOR }}",
+                "namedLogo": "github",
+                "description": "Pre-commit hooks status"
+              },
+              {
+                "label": "coverage",
+                "message": "${{ env.COVERAGE }} (${{ env.COVERAGE_DESCRIPTION }})",
+                "color": "${{ env.COVERAGE_COLOR }}",
+                "namedLogo": "pytest",
+                "description": "Test coverage percentage"
+              },
+              {
+                "label": "ruff",
+                "message": "${{ env.RUFF_STATUS }}",
+                "color": "${{ env.RUFF_COLOR }}",
+                "namedLogo": "ruff",
+                "description": "Ruff linting status"
+              },
+              {
+                "label": "typing",
+                "message": "${{ env.PYRIGHT_STATUS }}",
+                "color": "${{ env.PYRIGHT_COLOR }}",
+                "namedLogo": "python",
+                "description": "Pyright type checking status"
+              },
+              {
+                "label": "dead code",
+                "message": "${{ env.VULTURE_STATUS }}",
+                "color": "${{ env.VULTURE_COLOR }}",
+                "namedLogo": "python",
+                "description": "Vulture dead code detection"
+              },
+              {
+                "label": "security",
+                "message": "${{ env.BANDIT_STATUS }}",
+                "color": "${{ env.BANDIT_COLOR }}",
+                "namedLogo": "shieldsdotio",
+                "description": "Bandit security check status"
+              },
+              {
+                "label": "docs",
+                "message": "${{ env.INTERROGATE_STATUS }}",
+                "color": "${{ env.INTERROGATE_COLOR }}",
+                "namedLogo": "readthedocs",
+                "description": "Interrogate docstring coverage"
+              },
+              {
+                "label": "complexity",
+                "message": "${{ env.RADON_STATUS }}",
+                "color": "${{ env.RADON_COLOR }}",
+                "namedLogo": "codacy",
+                "description": "Radon code complexity rating"
+              },
+              {
+                "label": "maintainability",
+                "message": "${{ env.XENON_STATUS }}",
+                "color": "${{ env.XENON_COLOR }}",
+                "namedLogo": "codeclimate",
+                "description": "Xenon code maintainability status"
+              }
+            ]
+          }
+          EOF
+
+      # Update the single Gist file with all badge data
+      - name: Update Badges Gist
+        uses: exuanbo/actions-deploy-gist@v1
+        with:
+          token: ${{ secrets.BADGES_TOKEN }}
+          gist_id: ${{ secrets.BADGES_GIST_ID }}
+          file_path: badges.json
+          file_type: text
+
+      # Fail the workflow if pre-commit failed
+      - name: Check for failures
+        if: steps.pre-commit.outcome != 'success'
+        run: exit 1

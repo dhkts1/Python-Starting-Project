@@ -1,0 +1,120 @@
+site_name: Python Starting Project
+site_description: A comprehensive Python project template with built-in logging, configuration management, and development tools
+site_author: Gil Portnoy
+repo_url: https://github.com/dhkts1/Python-Starting-Project
+repo_name: python-starting-project
+
+theme:
+  name: material
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.indexes
+    - navigation.top
+    - search.highlight
+    - search.share
+    - content.code.copy
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          options:
+            show_source: true
+  - include-markdown
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.critic
+  - admonition
+  - pymdownx.details
+  - pymdownx.emoji
+  - attr_list
+  - md_in_html
+  - def_list
+  - footnotes
+  - tables
+  - toc:
+      permalink: true
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/yourusername/python-starting-project
+
+nav:
+  - Home: index.md
+  - Getting Started: getting-started.md
+  - Architecture:
+    - Configuration: architecture/configuration.md
+    - Logging: architecture/logging.md
+    - IDE Setup: architecture/ide-setup.md
+    - Lazy Loading: architecture/lazy-loading.md
+  - Development:
+    - Pre-commit Hooks: development/pre-commit-hooks.md
+    - Workflow: development/workflow.md
+    - Simplified Workflow: development/simplified-workflow.md
+  - Technologies:
+    - Overview: technologies/index.md
+    - Code Analysis:
+      - Bandit: technologies/code-analysis/bandit.md
+      - Pyright: technologies/code-analysis/pyright.md
+      - ShellCheck-py: technologies/code-analysis/shellcheck-py.md
+      - Vulture: technologies/code-analysis/vulture.md
+    - Code Quality:
+      - Codespell: technologies/code-quality/codespell.md
+      - Commitizen: technologies/code-quality/commitizen.md
+      - Darglint: technologies/code-quality/darglint.md
+      - Flynt: technologies/code-quality/flynt.md
+      - Interrogate: technologies/code-quality/interrogate.md
+      - MDFormat: technologies/code-quality/mdformat.md
+      - MkInit: technologies/code-quality/mkinit.md
+      - PyUpgrade: technologies/code-quality/pyupgrade.md
+      - Radon: technologies/code-quality/radon.md
+      - Ruff: technologies/code-quality/ruff.md
+      - Xenon: technologies/code-quality/xenon.md
+    - Documentation:
+      - Overview: technologies/documentation/index.md
+      - MkDocs: technologies/documentation/mkdocs.md
+      - MkDocstrings: technologies/documentation/mkdocstrings.md
+    - Package Management:
+      - Hatchling: technologies/package-management/hatchling.md
+      - UV: technologies/package-management/uv.md
+    - Project Structure:
+      - Hatchling: technologies/project-structure/hatchling.md
+      - Lazy Loader: technologies/project-structure/lazy-loader.md
+      - MkInit: technologies/project-structure/mkinit.md
+      - Pydantic Settings: technologies/project-structure/pydantic-settings.md
+    - Task Running:
+      - Poethepoet: technologies/task-running/poethepoet.md
+    - Testing:
+      - Pytest: technologies/testing/pytest.md
+      - Pytest-AsyncIO: technologies/testing/pytest-asyncio.md
+      - Pytest-Cov: technologies/testing/pytest-cov.md
+      - Pytest-XDist: technologies/testing/pytest-xdist.md
+    - Version Control:
+      - Git: technologies/version-control/git.md
+      - Pre-commit: technologies/version-control/pre-commit.md
+  - API Reference: api/index.md

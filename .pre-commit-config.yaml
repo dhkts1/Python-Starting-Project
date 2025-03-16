@@ -1,0 +1,126 @@
+fail_fast: true
+
+repos:
+  - repo: local
+    hooks:
+      - id: mkinit
+        name: mkinit
+        description: "Generate __init__ files"
+        entry: poe mkinit
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: lint
+        name: lint
+        description: "Run all linters (pyupgrade, flynt, pyright, ruff-check, ruff-format)"
+        entry: poe lint
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: test-coverage
+        name: test-coverage
+        description: "Run tests with coverage reporting"
+        entry: poe test-coverage
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: interrogate
+        name: interrogate
+        description: "Check docstring coverage"
+        entry: poe interrogate
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: mkdocs
+        name: mkdocs
+        description: "Build documentation with MkDocs"
+        entry: poe mkdocs
+        language: system
+        pass_filenames: false
+      - id: xenon
+        name: xenon
+        description: "Monitoring code complexity"
+        entry: poe xenon
+        language: system
+        pass_filenames: false
+        types: [python]
+      - id: radon
+        name: radon
+        description: "Check code complexity"
+        entry: poe radon
+        language: system
+        pass_filenames: false
+        types: [python]
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.4.1
+    hooks:
+      - id: codespell
+        additional_dependencies:
+        - tomli
+  - repo: https://github.com/abravalheri/validate-pyproject
+    rev: v0.24
+    hooks:
+      - id: validate-pyproject
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-yaml
+        args: [--unsafe]
+      - id: debug-statements
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+      - id: check-builtin-literals
+      - id: check-ast
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+      - id: check-docstring-first
+      - id: fix-byte-order-marker
+      - id: check-case-conflict
+      - id: check-toml
+      - id: file-contents-sorter
+        files: dictionary.*\.txt$|\.wordlist$
+        args: [--ignore-case]
+
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.7
+    hooks:
+      - id: actionlint
+  - repo: https://github.com/shellcheck-py/shellcheck-py
+    rev: v0.10.0.1
+    hooks:
+      - id: shellcheck
+        name: shellcheck
+        entry: shellcheck
+        language: python
+        types: [shell]
+        files: \.sh$
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.24.0
+    hooks:
+      - id: gitleaks
+  - repo: https://github.com/PyCQA/bandit
+    rev: 1.8.3
+    hooks:
+      - id: bandit
+        args: ["-c", "pyproject.toml", "--exclude", "tests,.venv,.git"]
+
+  # Code quality hooks
+  - repo: https://github.com/jendrikseipp/vulture
+    rev: v2.14
+    hooks:
+      - id: vulture
+        args: ["src", "tests", "--min-confidence", "80"]
+
+  # Git workflow hooks
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v4.4.1
+    hooks:
+      - id: commitizen
+        stages: [commit-msg]
+
+  - repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.22
+    hooks:
+      - id: mdformat
