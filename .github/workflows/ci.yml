@@ -227,8 +227,13 @@ jobs:
             COVERAGE=$(python -c "import xml.etree.ElementTree as ET; print(ET.parse('coverage.xml').getroot().get('line-rate'))")
             COVERAGE_PCT=$(python -c "print(f'{float(\"$COVERAGE\")*100:.2f}%')")
 
-            # Convert to numeric for comparison
-            COVERAGE_NUM=$(echo "$COVERAGE" | sed 's/%//' | sed 's/\..*//')
+            # Convert to numeric for comparison - fix the extraction to get the correct number
+            COVERAGE_NUM=$(python -c "print(int(float('$COVERAGE')*100))")
+
+            # Debug output
+            echo "Debug: COVERAGE=$COVERAGE"
+            echo "Debug: COVERAGE_PCT=$COVERAGE_PCT"
+            echo "Debug: COVERAGE_NUM=$COVERAGE_NUM"
 
             {
               echo "COVERAGE=$COVERAGE_PCT"

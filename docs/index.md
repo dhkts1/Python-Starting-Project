@@ -26,7 +26,7 @@ One tool that has been absolutely transformative in this process is the Sequenti
 
 One of the biggest pain points I've encountered is setting up a new project environment. Every time I start something new, I find myself spending hours configuring linters, formatters, test frameworks, documentation tools, and CI/CD pipelines. It's tedious, repetitive work that takes away from actual development time. With AI allowing me to work on more projects simultaneously and explore new ideas faster, this configuration overhead became an even bigger bottleneck.
 
-I wanted something preconfigured with all the options and best practices already in place – a template that just works out of the box. Something that integrates all the modern Python tools like Ruff, Pyright, UV, pytest, and MkDocs in a way that they complement each other rather than conflict. Something that handles the boilerplate so I can focus on building features. That's exactly what this project aims to be – a comprehensive starting point that eliminates the setup pain and lets you dive straight into development.
+I wanted something preconfigured with all the options and best practices already in place – a template that just works out of the box. Something that integrates all the modern Python tools like Ruff, Pyright, UV, pytest and many more in a way that they complement each other rather than conflict. Something that handles the boilerplate so I can focus on building features. That's exactly what this project aims to be – a comprehensive starting point that eliminates the setup pain and lets you dive straight into development.
 
 ## The Memory Bank Experiment
 
