@@ -2459,18 +2459,18 @@
 <ol>
 <li>Install uv: <a href="https://docs.astral.sh/uv/getting-started/installation/">https://docs.astral.sh/uv/getting-started/installation/</a></li>
 <li>Clone the repository:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/python-starting-project.git
-</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="nb">cd</span><span class="w"> </span>python-starting-project
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>git clone https://github.com/yourusername/python-starting-project.git
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>cd python-starting-project
 </span></code></pre></div></li>
 <li>Set up the environment:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>sync
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uv<span class="w"> </span>venv
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv sync
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>uv venv
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>uv run pre-commit install
 </span></code></pre></div></li>
 <li>Run pre-commit checks:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poe<span class="w"> </span>pre
+    <div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>poe pre
 </span></code></pre></div>
-   This command checks for errors that the linter might have missed and will be run by Cursor automatically when it finishes processing your code.</li>
+    This command checks for errors that the linter might have missed and will be run by Cursor automatically when it finishes processing your code.</li>
 </ol>
 <p>You're all set! Start developing with confidence.</p>
 <blockquote>
@@ -2615,58 +2615,49 @@
 <ol>
 <li>
 <p>Create a GitHub Gist to store the badge data:</p>
-</li>
-<li>
-<p>Go to https://gist.github.com/ and create a new gist</p>
-</li>
+<ul>
+<li>Go to https://gist.github.com/ and create a new gist</li>
 <li>Create a file named <code>badges.json</code> (content doesn't matter, it will be overwritten)</li>
 <li>Make sure the Gist is <strong>public</strong> so the badge images can be accessed without authentication</li>
-<li>
-<p>Note the Gist ID from the URL (the alphanumeric string after your username)</p>
+<li>Note the Gist ID from the URL (the alphanumeric string after your username)</li>
+</ul>
 </li>
 <li>
 <p>Create a Personal Access Token (PAT) with <code>gist</code> scope:</p>
-</li>
-<li>
-<p>Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)</p>
-</li>
+<ul>
+<li>Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)</li>
 <li>Generate a new token with the <code>gist</code> scope</li>
-<li>
-<p>Copy the generated token</p>
+<li>Copy the generated token</li>
+</ul>
 </li>
 <li>
 <p>Add the following secrets to your repository:</p>
-</li>
-<li>
-<p>Go to your repository → Settings → Secrets and variables → Actions</p>
-</li>
+<ul>
+<li>Go to your repository → Settings → Secrets and variables → Actions</li>
 <li>Add <code>BADGES_GIST_ID</code> with your Gist ID value</li>
-<li>
-<p>Add <code>BADGES_TOKEN</code> with your Personal Access Token</p>
+<li>Add <code>BADGES_TOKEN</code> with your Personal Access Token</li>
+</ul>
 </li>
 <li>
 <p>Enable badges in your repository:</p>
-</li>
-<li>
-<p>Go to your repository → Settings → Secrets and variables → Actions</p>
-</li>
-<li>
-<p>Under "Variables", add <code>ENABLE_BADGES</code> with value <code>true</code></p>
+<ul>
+<li>Go to your repository → Settings → Secrets and variables → Actions</li>
+<li>Under "Variables", add <code>ENABLE_BADGES</code> with value <code>true</code></li>
+</ul>
 </li>
 <li>
 <p>Update the badge URLs in your README.md:</p>
-</li>
-<li>
-<p>Replace the URL in the badge markdown with your Gist URL</p>
-</li>
+<ul>
+<li>Replace the URL in the badge markdown with your Gist URL</li>
 <li>Example: <code>![Badge](https://img.shields.io/dynamic/json?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/badges.json&amp;query=$.badges[?(@.label%3D%3D%27pre-commit%27)].message&amp;label=pre-commit&amp;color=green)</code></li>
+</ul>
+</li>
 </ol>
 <p>The badges workflow is disabled by default to avoid unnecessary GitHub Actions usage. It will only run when the <code>ENABLE_BADGES</code> repository variable is set to <code>true</code>.</p>
 <h4 id="dependabot-integration">Dependabot Integration<a class="headerlink" href="#dependabot-integration" title="Permanent link">&para;</a></h4>
 <p>For Dependabot to work with the badges workflow, additional configuration has been added:</p>
 <ol>
 <li>The <code>.github/dependabot.yml</code> file includes permissions for Dependabot to access the badge secrets.</li>
-<li>A special workflow file <code>.github/workflows/dependabot-badges.yml</code> handles Dependabot PRs.</li>
 </ol>
 <h3 id="other-tools">Other Tools<a class="headerlink" href="#other-tools" title="Permanent link">&para;</a></h3>
 <ul>

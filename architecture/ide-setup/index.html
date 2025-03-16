@@ -2788,43 +2788,37 @@
 <ol>
 <li>
 <p><strong>Changes View</strong>:</p>
-</li>
-<li>
-<p>Shows all modified, added, and deleted files</p>
-</li>
+<ul>
+<li>Shows all modified, added, and deleted files</li>
 <li>Provides a clear overview of what has changed in your project</li>
-<li>
-<p>Allows you to stage individual files or all changes at once</p>
+<li>Allows you to stage individual files or all changes at once</li>
+</ul>
 </li>
 <li>
 <p><strong>Diff Viewer</strong>:</p>
-</li>
-<li>
-<p>Click on any modified file to see a side-by-side comparison</p>
-</li>
+<ul>
+<li>Click on any modified file to see a side-by-side comparison</li>
 <li>Clearly highlights what has been added, changed, or removed</li>
 <li>Makes reviewing AI-generated code changes much easier</li>
-<li>
-<p>Allows you to accept or reject changes at a granular level</p>
+<li>Allows you to accept or reject changes at a granular level</li>
+</ul>
 </li>
 <li>
 <p><strong>Commit Management</strong>:</p>
-</li>
-<li>
-<p>Write commit messages and commit changes directly from the editor</p>
-</li>
+<ul>
+<li>Write commit messages and commit changes directly from the editor</li>
 <li>View commit history and browse previous versions</li>
-<li>
-<p>Create and switch between branches</p>
+<li>Create and switch between branches</li>
+</ul>
 </li>
 <li>
 <p><strong>Integration with GitHub</strong>:</p>
-</li>
-<li>
-<p>Push and pull changes to/from remote repositories</p>
-</li>
+<ul>
+<li>Push and pull changes to/from remote repositories</li>
 <li>Create and review pull requests</li>
 <li>Manage issues</li>
+</ul>
+</li>
 </ol>
 <h4 id="best-practices-for-source-control">Best Practices for Source Control<a class="headerlink" href="#best-practices-for-source-control" title="Permanent link">&para;</a></h4>
 <ul>
@@ -2980,11 +2974,13 @@
 <ol>
 <li>Open the Command Palette (<code>Ctrl+Shift+P</code> or <code>Cmd+Shift+P</code>)</li>
 <li>Type "Tasks: Run Task"</li>
-<li>Select one of the available tasks:</li>
+<li>Select one of the available tasks:<ul>
 <li>Run Tests</li>
 <li>Build Documentation</li>
 <li>Lint Code</li>
 <li>Format Code</li>
+</ul>
+</li>
 </ol>
 <h2 id="keyboard-shortcuts">Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permanent link">&para;</a></h2>
 <p>Here are some useful keyboard shortcuts for working with Python in both editors:</p>
@@ -3002,32 +2998,28 @@
 <ol>
 <li>
 <p><strong>Use AI Suggestions Wisely</strong></p>
-</li>
-<li>
-<p>Review AI-generated code for correctness</p>
-</li>
+<ul>
+<li>Review AI-generated code for correctness</li>
 <li>Understand suggested changes before applying</li>
-<li>
-<p>Use AI as a tool, not a replacement for understanding</p>
+<li>Use AI as a tool, not a replacement for understanding</li>
+</ul>
 </li>
 <li>
 <p><strong>Documentation</strong></p>
-</li>
-<li>
-<p>Let AI help generate initial documentation</p>
-</li>
+<ul>
+<li>Let AI help generate initial documentation</li>
 <li>Review and enhance AI-generated content</li>
-<li>
-<p>Keep documentation up-to-date with code changes</p>
+<li>Keep documentation up-to-date with code changes</li>
+</ul>
 </li>
 <li>
 <p><strong>Code Quality</strong></p>
-</li>
-<li>
-<p>Use AI to maintain consistent code style</p>
-</li>
+<ul>
+<li>Use AI to maintain consistent code style</li>
 <li>Leverage AI for complex refactoring</li>
 <li>Run automated tests after AI-suggested changes</li>
+</ul>
+</li>
 </ol>
 <h2 id="additional-resources">Additional Resources<a class="headerlink" href="#additional-resources" title="Permanent link">&para;</a></h2>
 <ul>
@@ -3049,21 +3041,21 @@
 <h3 id="mcp-configuration">MCP Configuration<a class="headerlink" href="#mcp-configuration" title="Permanent link">&para;</a></h3>
 <p>The project includes MCP configuration in the <code>.cursor/mcp.json</code> file:</p>
 <div class="language-json highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="p">{</span>
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">    </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">        </span><span class="nt">&quot;sequential-thinking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">                </span><span class="s2">&quot;-y&quot;</span><span class="p">,</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">                </span><span class="s2">&quot;@modelcontextprotocol/server-sequential-thinking&quot;</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">            </span><span class="p">]</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">        </span><span class="p">},</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">        </span><span class="nt">&quot;fetch&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">            </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uvx&quot;</span><span class="p">,</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">            </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">                </span><span class="s2">&quot;mcp-server-fetch&quot;</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">            </span><span class="p">]</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">        </span><span class="p">}</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="w">  </span><span class="nt">&quot;mcpServers&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="w">    </span><span class="nt">&quot;sequential-thinking&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;npx&quot;</span><span class="p">,</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="w">        </span><span class="s2">&quot;-y&quot;</span><span class="p">,</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="w">        </span><span class="s2">&quot;@modelcontextprotocol/server-sequential-thinking&quot;</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="w">    </span><span class="p">},</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="w">    </span><span class="nt">&quot;fetch&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="w">      </span><span class="nt">&quot;command&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;uvx&quot;</span><span class="p">,</span>
+</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="w">      </span><span class="nt">&quot;args&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="w">        </span><span class="s2">&quot;mcp-server-fetch&quot;</span>
+</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="w">      </span><span class="p">]</span>
+</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="w">    </span><span class="p">}</span>
+</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="w">  </span><span class="p">}</span>
 </span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="p">}</span>
 </span></code></pre></div>
 <p>This configuration enables two MCP servers:</p>
@@ -3094,7 +3086,7 @@
 <ol>
 <li>Make sure the <code>.cursor/mcp.json</code> file exists in your project</li>
 <li>Install the required dependencies:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@modelcontextprotocol/server-sequential-thinking
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>npm<span class="w"> </span>install<span class="w"> </span>-g<span class="w"> </span>@modelcontextprotocol/server-sequential-thinking
 </span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>pip<span class="w"> </span>install<span class="w"> </span>mcp-server-fetch
 </span></code></pre></div></li>
 <li>When working with AI tools, verify they have access to the MCP configuration</li>
@@ -3105,7 +3097,7 @@
 <ol>
 <li>Install <a href="https://cursor.sh">Cursor</a></li>
 <li>Open the project folder in Cursor:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cursor<span class="w"> </span>.
+    <div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>cursor<span class="w"> </span>.
 </span></code></pre></div></li>
 <li>Cursor will automatically use the same settings and extensions as VSCode</li>
 <li>Let Cursor's AI agent analyze your codebase</li>
