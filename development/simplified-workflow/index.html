@@ -583,57 +583,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-4-command-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      The 4-Command Workflow
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The 4-Command Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-uv-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. uv sync
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-uv-run-pre-commit-install" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. uv run pre-commit install
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-git-add" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. git add
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-git-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. git commit
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#complete-workflow-example" class="md-nav__link">
     <span class="md-ellipsis">
       Complete Workflow Example
@@ -1952,57 +1901,6 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#the-4-command-workflow" class="md-nav__link">
-    <span class="md-ellipsis">
-      The 4-Command Workflow
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The 4-Command Workflow">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#1-uv-sync" class="md-nav__link">
-    <span class="md-ellipsis">
-      1. uv sync
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#2-uv-run-pre-commit-install" class="md-nav__link">
-    <span class="md-ellipsis">
-      2. uv run pre-commit install
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#3-git-add" class="md-nav__link">
-    <span class="md-ellipsis">
-      3. git add
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#4-git-commit" class="md-nav__link">
-    <span class="md-ellipsis">
-      4. git commit
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#complete-workflow-example" class="md-nav__link">
     <span class="md-ellipsis">
       Complete Workflow Example
@@ -2101,84 +1999,18 @@
 
 <h1 id="simplified-workflow">Simplified Workflow<a class="headerlink" href="#simplified-workflow" title="Permanent link">&para;</a></h1>
 <p>This project is designed to have a minimal learning curve. You only need to know <strong>4 commands</strong> for the entire development cycle.</p>
-<h2 id="the-4-command-workflow">The 4-Command Workflow<a class="headerlink" href="#the-4-command-workflow" title="Permanent link">&para;</a></h2>
-<h3 id="1-uv-sync">1. <code>uv sync</code><a class="headerlink" href="#1-uv-sync" title="Permanent link">&para;</a></h3>
-<p>This command installs or updates all project dependencies:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>sync
-</span></code></pre></div>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Reads the <code>pyproject.toml</code> file to determine required dependencies</li>
-<li>Installs all dependencies in your virtual environment</li>
-<li>Updates existing dependencies to their specified versions</li>
-<li>Creates or updates the lock file (<code>uv.lock</code>)</li>
-</ul>
-<p><strong>When to use it:</strong></p>
-<ul>
-<li>When you first clone the repository</li>
-<li>When dependencies are updated in <code>pyproject.toml</code></li>
-<li>When switching to a branch with different dependencies</li>
-<li>When you need to ensure your environment matches the project requirements</li>
-</ul>
-<h3 id="2-uv-run-pre-commit-install">2. <code>uv run pre-commit install</code><a class="headerlink" href="#2-uv-run-pre-commit-install" title="Permanent link">&para;</a></h3>
-<p>This command sets up the pre-commit hooks that automatically check your code quality before each commit:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install
-</span></code></pre></div>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Installs git hooks that run automatically before each commit</li>
-<li>Configures the hooks to use your local environment (via <code>uv run</code>)</li>
-<li>Links the hooks to the configurations in <code>.pre-commit-config.yaml</code></li>
-</ul>
-<p><strong>When to use it:</strong></p>
-<ul>
-<li>Only once after cloning the repository</li>
-<li>If you need to reinstall the pre-commit hooks</li>
-</ul>
-<h3 id="3-git-add">3. <code>git add</code><a class="headerlink" href="#3-git-add" title="Permanent link">&para;</a></h3>
-<p>This command stages your changes for commit:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="c1"># Add specific files</span>
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>git<span class="w"> </span>add<span class="w"> </span>filename.py
-</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>
-</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="c1"># Add all changes</span>
-</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>git<span class="w"> </span>add<span class="w"> </span>.
-</span></code></pre></div>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Marks modified files to be included in the next commit</li>
-<li>Prepares the changes for the pre-commit hooks to check</li>
-</ul>
-<p><strong>When to use it:</strong></p>
-<ul>
-<li>After making changes you want to commit</li>
-<li>Before running <code>git commit</code></li>
-</ul>
-<h3 id="4-git-commit">4. <code>git commit</code><a class="headerlink" href="#4-git-commit" title="Permanent link">&para;</a></h3>
-<p>This command commits your staged changes:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your commit message&quot;</span>
-</span></code></pre></div>
-<p><strong>What it does:</strong></p>
-<ul>
-<li>Automatically triggers the pre-commit hooks to check your code</li>
-<li>If all hooks pass, creates a commit with your changes</li>
-<li>If any hooks fail, aborts the commit and shows error messages</li>
-</ul>
-<p><strong>When to use it:</strong></p>
-<ul>
-<li>After staging your changes with <code>git add</code></li>
-<li>When you're ready to save your changes to the repository</li>
-</ul>
 <h2 id="complete-workflow-example">Complete Workflow Example<a class="headerlink" href="#complete-workflow-example" title="Permanent link">&para;</a></h2>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Initial setup (only once)</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>uv<span class="w"> </span>sync
-</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install
-</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>
-</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="c1"># Development cycle (repeat as needed)</span>
-</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="c1"># 1. Make changes to your code</span>
-</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="c1"># 2. Stage changes</span>
-</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>git<span class="w"> </span>add<span class="w"> </span>.
-</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="c1"># 3. Commit changes (pre-commit hooks run automatically)</span>
-</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add new feature&quot;</span>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Initial setup (only once)</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>sync
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>install
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="c1"># Development cycle (repeat as needed)</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>poe<span class="w"> </span>pre
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="c1"># Commit your changes</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>git<span class="w"> </span>add<span class="w"> </span>.
+</span><span id="__span-0-10"><a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your message&quot;</span>
+</span><span id="__span-0-11"><a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>git<span class="w"> </span>push
 </span></code></pre></div>
 <h2 id="what-happens-behind-the-scenes">What Happens Behind the Scenes<a class="headerlink" href="#what-happens-behind-the-scenes" title="Permanent link">&para;</a></h2>
 <p>When you run <code>git commit</code>, the pre-commit hooks automatically:</p>
@@ -2211,12 +2043,12 @@
 </ol>
 <h3 id="skipping-pre-commit-hooks-not-recommended">Skipping Pre-commit Hooks (Not Recommended)<a class="headerlink" href="#skipping-pre-commit-hooks-not-recommended" title="Permanent link">&para;</a></h3>
 <p>In rare cases, you might need to bypass the pre-commit hooks:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your message&quot;</span><span class="w"> </span>--no-verify
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your message&quot;</span><span class="w"> </span>--no-verify
 </span></code></pre></div>
 <p><strong>Warning:</strong> This should only be used in exceptional circumstances, as it bypasses all quality checks.</p>
 <h3 id="updating-pre-commit-hooks">Updating Pre-commit Hooks<a class="headerlink" href="#updating-pre-commit-hooks" title="Permanent link">&para;</a></h3>
 <p>To update your pre-commit hooks to the latest versions:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>autoupdate
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>uv<span class="w"> </span>run<span class="w"> </span>pre-commit<span class="w"> </span>autoupdate
 </span></code></pre></div>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
 <p>For more detailed information about the pre-commit hooks and what they check for, see <a href="../pre-commit-hooks/">Pre-commit Hooks</a>.</p>
