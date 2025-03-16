@@ -32,9 +32,9 @@ uv pip install mdformat
 In this project, MDFormat is used to:
 
 1. Ensure consistent formatting across all Markdown documentation
-1. Automatically fix formatting issues in documentation files
-1. Run as part of the pre-commit hooks and CI/CD pipeline
-1. Maintain professional and readable documentation
+2. Automatically fix formatting issues in documentation files
+3. Run as part of the pre-commit hooks and CI/CD pipeline
+4. Maintain professional and readable documentation
 
 ## Configuration in This Project
 
@@ -117,20 +117,20 @@ This is a paragraph with extra spaces.
 MDFormat applies several formatting rules:
 
 1. **Consistent headings**: Uses ATX-style headings (`#` syntax)
-1. **List formatting**: Standardizes list markers (`-` for unordered lists)
-1. **Whitespace**: Removes trailing whitespace and ensures consistent spacing
-1. **Line breaks**: Normalizes line breaks
-1. **List numbering**: Correctly numbers ordered lists (when enabled)
-1. **Table formatting**: Aligns table columns (with extensions)
-1. **Code blocks**: Ensures proper fencing for code blocks
+2. **List formatting**: Standardizes list markers (`-` for unordered lists)
+3. **Whitespace**: Removes trailing whitespace and ensures consistent spacing
+4. **Line breaks**: Normalizes line breaks
+5. **List numbering**: Correctly numbers ordered lists (when enabled)
+6. **Table formatting**: Aligns table columns (with extensions)
+7. **Code blocks**: Ensures proper fencing for code blocks
 
 ## Best Practices
 
 1. **Run MDFormat regularly**: Include it in your pre-commit hooks to maintain consistent formatting.
-1. **Format before committing**: Run MDFormat on documentation files before committing changes.
-1. **Use with other Markdown tools**: Combine with Markdown linters for comprehensive documentation quality.
-1. **Enable relevant extensions**: Use extensions that match your Markdown flavor (e.g., GitHub Flavored Markdown).
-1. **Check formatting in CI**: Verify Markdown formatting as part of your CI pipeline.
+2. **Format before committing**: Run MDFormat on documentation files before committing changes.
+3. **Use with other Markdown tools**: Combine with Markdown linters for comprehensive documentation quality.
+4. **Enable relevant extensions**: Use extensions that match your Markdown flavor (e.g., GitHub Flavored Markdown).
+5. **Check formatting in CI**: Verify Markdown formatting as part of your CI pipeline.
 
 ## Resources
 

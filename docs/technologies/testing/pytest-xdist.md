@@ -33,9 +33,9 @@ uv pip install pytest-xdist
 In this project, Pytest-xdist is used to:
 
 1. Speed up test execution by running tests in parallel
-1. Ensure tests are properly isolated and don't interfere with each other
-1. Optimize CI/CD pipeline performance
-1. Reduce feedback time during development
+2. Ensure tests are properly isolated and don't interfere with each other
+3. Optimize CI/CD pipeline performance
+4. Reduce feedback time during development
 
 ## Configuration in This Project
 
@@ -84,10 +84,10 @@ uv run pytest -n auto --dist=loadmodule
 Pytest-xdist supports different distribution modes:
 
 1. **`--dist=load`** (default): Distributes tests to available workers as they finish their previous tests
-1. **`--dist=loadscope`**: Groups tests by module and class, ensuring related tests run on the same worker
-1. **`--dist=loadfile`**: Groups tests by file, ensuring all tests from a file run on the same worker
-1. **`--dist=loadgroup`**: Groups tests by the `xdist_group` marker
-1. **`--dist=each`**: Runs the entire test suite on each worker with different parameters
+2. **`--dist=loadscope`**: Groups tests by module and class, ensuring related tests run on the same worker
+3. **`--dist=loadfile`**: Groups tests by file, ensuring all tests from a file run on the same worker
+4. **`--dist=loadgroup`**: Groups tests by the `xdist_group` marker
+5. **`--dist=each`**: Runs the entire test suite on each worker with different parameters
 
 ## Examples
 
@@ -110,10 +110,12 @@ gw0 [250] / gw1 [250] / gw2 [250] / gw3 [250]
 # In your test file
 import pytest
 
+
 @pytest.mark.xdist_group(name="database")
 def test_database_connection():
     # Test database connection
     ...
+
 
 @pytest.mark.xdist_group(name="api")
 def test_api_endpoint():
@@ -129,22 +131,22 @@ uv run pytest -n 4 --dist=loadgroup
 ## Best Practices
 
 1. **Ensure test isolation**: Make sure tests don't depend on each other or shared state.
-1. **Use appropriate distribution mode**: Choose the right `--dist` option based on your test dependencies.
-1. **Consider test data**: Be careful with tests that access the same test data or database.
-1. **Balance parallelism**: More workers isn't always better; find the optimal number for your system.
-1. **Use markers for grouping**: Use `xdist_group` markers to control how tests are distributed.
-1. **Monitor resource usage**: Watch CPU, memory, and I/O usage during parallel test execution.
-1. **Combine with pytest-cov**: Use `--cov-append` when combining with coverage measurement.
+2. **Use appropriate distribution mode**: Choose the right `--dist` option based on your test dependencies.
+3. **Consider test data**: Be careful with tests that access the same test data or database.
+4. **Balance parallelism**: More workers isn't always better; find the optimal number for your system.
+5. **Use markers for grouping**: Use `xdist_group` markers to control how tests are distributed.
+6. **Monitor resource usage**: Watch CPU, memory, and I/O usage during parallel test execution.
+7. **Combine with pytest-cov**: Use `--cov-append` when combining with coverage measurement.
 
 ## Common Issues and Solutions
 
-| Issue | Solution |
-|-------|----------|
+| Issue                             | Solution                                                           |
+| --------------------------------- | ------------------------------------------------------------------ |
 | Tests interfering with each other | Use `--dist=loadscope` or `--dist=loadfile` to group related tests |
-| Database conflicts | Use separate test databases or transactions for isolation |
-| Inconsistent test failures | Add the `--reruns` option to retry flaky tests |
-| High resource usage | Reduce the number of workers with `-n` option |
-| Slow test initialization | Use session-scoped fixtures for expensive setup operations |
+| Database conflicts                | Use separate test databases or transactions for isolation          |
+| Inconsistent test failures        | Add the `--reruns` option to retry flaky tests                     |
+| High resource usage               | Reduce the number of workers with `-n` option                      |
+| Slow test initialization          | Use session-scoped fixtures for expensive setup operations         |
 
 ## Resources
 

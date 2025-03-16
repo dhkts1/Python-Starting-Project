@@ -30,8 +30,8 @@ uv pip install flynt
 In this project, Flynt is used to:
 
 1. Automatically convert old-style string formatting to f-strings
-1. Maintain consistent string formatting across the codebase
-1. Run as part of the pre-commit hooks and CI/CD pipeline
+2. Maintain consistent string formatting across the codebase
+3. Run as part of the pre-commit hooks and CI/CD pipeline
 
 ## Configuration in This Project
 
@@ -118,9 +118,9 @@ greeting = f"Hello, {name}!"
 ## Best Practices
 
 1. **Run Flynt regularly**: Include Flynt in your pre-commit hooks to ensure consistent string formatting.
-1. **Use f-strings for new code**: Write new code using f-strings directly.
-1. **Review conversions**: Some complex string formatting might need manual review after conversion.
-1. **Combine with other formatting tools**: Use Flynt alongside tools like Ruff for comprehensive code formatting.
+2. **Use f-strings for new code**: Write new code using f-strings directly.
+3. **Review conversions**: Some complex string formatting might need manual review after conversion.
+4. **Combine with other formatting tools**: Use Flynt alongside tools like Ruff for comprehensive code formatting.
 
 ## Resources
 

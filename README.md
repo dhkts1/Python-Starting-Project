@@ -24,22 +24,22 @@ Welcome to the Python Starting Project documentation! This project provides a co
 ## TL;DR: Quick Setup
 
 1. Install uv: [https://docs.astral.sh/uv/getting-started/installation/](https://docs.astral.sh/uv/getting-started/installation/)
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/python-starting-project.git
-   cd python-starting-project
-   ```
-1. Set up the environment:
-   ```bash
-   uv sync
-   uv venv
-   uv run pre-commit install
-   ```
-1. Run pre-commit checks:
-   ```bash
-   poe pre
-   ```
-   This command checks for errors that the linter might have missed and will be run by Cursor automatically when it finishes processing your code.
+2. Clone the repository:
+    ```
+    git clone https://github.com/yourusername/python-starting-project.git
+    cd python-starting-project
+    ```
+3. Set up the environment:
+    ```
+    uv sync
+    uv venv
+    uv run pre-commit install
+    ```
+4. Run pre-commit checks:
+    ```
+    poe pre
+    ```
+    This command checks for errors that the linter might have missed and will be run by Cursor automatically when it finishes processing your code.
 
 You're all set! Start developing with confidence.
 
@@ -95,8 +95,8 @@ python-starting-project/
 This project is designed to have a minimal learning curve. You only need to know a few commands for the entire development cycle:
 
 1. **Install dependencies**: `uv sync`
-1. **Set up pre-commit hooks**: `uv run pre-commit install` (once after cloning)
-1. **Run pre-commit checks**: `poe pre`
+2. **Set up pre-commit hooks**: `uv run pre-commit install` (once after cloning)
+3. **Run pre-commit checks**: `poe pre`
 
 ## Documentation
 
@@ -198,32 +198,32 @@ To enable the dynamic badges:
 
 1. Create a GitHub Gist to store the badge data:
 
-   - Go to https://gist.github.com/ and create a new gist
-   - Create a file named `badges.json` (content doesn't matter, it will be overwritten)
-   - Make sure the Gist is **public** so the badge images can be accessed without authentication
-   - Note the Gist ID from the URL (the alphanumeric string after your username)
+    - Go to https://gist.github.com/ and create a new gist
+    - Create a file named `badges.json` (content doesn't matter, it will be overwritten)
+    - Make sure the Gist is **public** so the badge images can be accessed without authentication
+    - Note the Gist ID from the URL (the alphanumeric string after your username)
 
-1. Create a Personal Access Token (PAT) with `gist` scope:
+2. Create a Personal Access Token (PAT) with `gist` scope:
 
-   - Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
-   - Generate a new token with the `gist` scope
-   - Copy the generated token
+    - Go to GitHub Settings → Developer settings → Personal access tokens → Tokens (classic)
+    - Generate a new token with the `gist` scope
+    - Copy the generated token
 
-1. Add the following secrets to your repository:
+3. Add the following secrets to your repository:
 
-   - Go to your repository → Settings → Secrets and variables → Actions
-   - Add `BADGES_GIST_ID` with your Gist ID value
-   - Add `BADGES_TOKEN` with your Personal Access Token
+    - Go to your repository → Settings → Secrets and variables → Actions
+    - Add `BADGES_GIST_ID` with your Gist ID value
+    - Add `BADGES_TOKEN` with your Personal Access Token
 
-1. Enable badges in your repository:
+4. Enable badges in your repository:
 
-   - Go to your repository → Settings → Secrets and variables → Actions
-   - Under "Variables", add `ENABLE_BADGES` with value `true`
+    - Go to your repository → Settings → Secrets and variables → Actions
+    - Under "Variables", add `ENABLE_BADGES` with value `true`
 
-1. Update the badge URLs in your README.md:
+5. Update the badge URLs in your README.md:
 
-   - Replace the URL in the badge markdown with your Gist URL
-   - Example: `![Badge](https://img.shields.io/dynamic/json?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/badges.json&query=$.badges[?(@.label%3D%3D%27pre-commit%27)].message&label=pre-commit&color=green)`
+    - Replace the URL in the badge markdown with your Gist URL
+    - Example: `![Badge](https://img.shields.io/dynamic/json?url=https://gist.githubusercontent.com/YOUR_USERNAME/YOUR_GIST_ID/raw/badges.json&query=$.badges[?(@.label%3D%3D%27pre-commit%27)].message&label=pre-commit&color=green)`
 
 The badges workflow is disabled by default to avoid unnecessary GitHub Actions usage. It will only run when the `ENABLE_BADGES` repository variable is set to `true`.
 
@@ -232,7 +232,6 @@ The badges workflow is disabled by default to avoid unnecessary GitHub Actions u
 For Dependabot to work with the badges workflow, additional configuration has been added:
 
 1. The `.github/dependabot.yml` file includes permissions for Dependabot to access the badge secrets.
-1. A special workflow file `.github/workflows/dependabot-badges.yml` handles Dependabot PRs.
 
 ### Other Tools
 

@@ -55,9 +55,9 @@ version = "0.1.0"
 description = "Project description"
 readme = "README.md"
 requires-python = ">=3.11"
-license = {text = "MIT"}
+license = { text = "MIT" }
 authors = [
-    {name = "Your Name", email = "your.email@example.com"},
+  { name = "Your Name", email = "your.email@example.com" },
 ]
 ```
 
@@ -66,14 +66,14 @@ authors = [
 ```toml
 [project]
 dependencies = [
-    "dependency1>=1.0.0",
-    "dependency2>=2.0.0",
+  "dependency1>=1.0.0",
+  "dependency2>=2.0.0",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "black>=23.0.0",
+  "pytest>=7.0.0",
+  "black>=23.0.0",
 ]
 ```
 
@@ -95,8 +95,8 @@ plugin-name = "package.module:function"
 ```toml
 [tool.hatch.build]
 exclude = [
-    "tests/",
-    "docs/",
+  "tests/",
+  "docs/",
 ]
 
 [tool.hatch.build.targets.wheel]
@@ -106,9 +106,9 @@ packages = ["src"]
 ## Best Practices
 
 1. **Use `src` directory structure**: This keeps your package code separate from project files.
-1. **Specify Python version requirements**: Use `requires-python` to ensure compatibility.
-1. **Include comprehensive metadata**: Provide complete project information for better PyPI presentation.
-1. **Use dynamic versioning when appropriate**: Hatchling supports various versioning schemes.
+2. **Specify Python version requirements**: Use `requires-python` to ensure compatibility.
+3. **Include comprehensive metadata**: Provide complete project information for better PyPI presentation.
+4. **Use dynamic versioning when appropriate**: Hatchling supports various versioning schemes.
 
 ## Troubleshooting
 
@@ -131,8 +131,8 @@ uv run python -m build
 If the built package is missing files:
 
 1. Check the `[tool.hatch.build.targets.wheel]` section
-1. Ensure all necessary directories are included
-1. Check for exclude patterns that might be too broad
+2. Ensure all necessary directories are included
+3. Check for exclude patterns that might be too broad
 
 ## Resources
 

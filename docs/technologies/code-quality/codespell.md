@@ -31,8 +31,8 @@ uv pip install codespell
 In this project, Codespell is used to:
 
 1. Check for spelling errors in all project files
-1. Run automatically as a pre-commit hook
-1. Ensure consistent spelling in documentation and code comments
+2. Run automatically as a pre-commit hook
+3. Ensure consistent spelling in documentation and code comments
 
 ## Configuration in This Project
 
@@ -108,28 +108,28 @@ src/module.py:10: definitely -> definitely
 Here are some common misspellings that Codespell catches:
 
 | Common Typo | Correct Spelling |
-|---------------|---------------|
-| accommodate | accommodate |
-| achieve | achieve |
-| address | address |
-| argument | argument |
-| believe | believe |
-| consensus | consensus |
-| definitely | definitely |
-| dependency | dependency |
-| existence | existence |
-| occurred | occurred |
-| receive | receive |
-| separate | separate |
-| successful | successful |
+| ----------- | ---------------- |
+| accommodate | accommodate      |
+| achieve     | achieve          |
+| address     | address          |
+| argument    | argument         |
+| believe     | believe          |
+| consensus   | consensus        |
+| definitely  | definitely       |
+| dependency  | dependency       |
+| existence   | existence        |
+| occurred    | occurred         |
+| receive     | receive          |
+| separate    | separate         |
+| successful  | successful       |
 
 ## Best Practices
 
 1. **Run regularly**: Include Codespell in your pre-commit hooks
-1. **Customize for your project**: Add project-specific terms to the ignore list
-1. **Fix spelling errors promptly**: Correct spelling errors as soon as they're detected
-1. **Use with other tools**: Combine with other linting tools for comprehensive code quality
-1. **Update dictionaries**: Keep custom dictionaries updated with domain-specific terminology
+2. **Customize for your project**: Add project-specific terms to the ignore list
+3. **Fix spelling errors promptly**: Correct spelling errors as soon as they're detected
+4. **Use with other tools**: Combine with other linting tools for comprehensive code quality
+5. **Update dictionaries**: Keep custom dictionaries updated with domain-specific terminology
 
 ## Troubleshooting
 
@@ -138,14 +138,14 @@ Here are some common misspellings that Codespell catches:
 If Codespell flags words that are actually correct:
 
 1. Add them to the `ignore-words-list` in your configuration
-1. Create a custom dictionary file with words to ignore
+2. Create a custom dictionary file with words to ignore
 
 ### Performance Issues
 
 For large codebases:
 
 1. Use the `skip` option to exclude large generated files or binary files
-1. Run Codespell only on changed files during development
+2. Run Codespell only on changed files during development
 
 ## Resources
 

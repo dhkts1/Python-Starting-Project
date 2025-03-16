@@ -40,10 +40,10 @@ uv run pre-commit install
 In this project, Pre-commit is used to:
 
 1. Run code quality checks before each commit
-1. Enforce consistent code style and formatting
-1. Catch common issues early in the development process
-1. Ensure documentation is properly formatted
-1. Run security checks on the codebase
+2. Enforce consistent code style and formatting
+3. Catch common issues early in the development process
+4. Ensure documentation is properly formatted
+5. Run security checks on the codebase
 
 ## Configuration in This Project
 
@@ -126,35 +126,35 @@ src/module.py:25:5: E501 Line too long (88 > 79 characters)
 Pre-commit supports different types of hooks:
 
 1. **pre-commit**: Runs before committing
-1. **pre-push**: Runs before pushing
-1. **pre-merge-commit**: Runs before merge commits
-1. **pre-rebase**: Runs before rebasing
-1. **commit-msg**: Runs to validate commit messages
-1. **prepare-commit-msg**: Runs to prepare commit messages
+2. **pre-push**: Runs before pushing
+3. **pre-merge-commit**: Runs before merge commits
+4. **pre-rebase**: Runs before rebasing
+5. **commit-msg**: Runs to validate commit messages
+6. **prepare-commit-msg**: Runs to prepare commit messages
 
 ## Best Practices
 
 1. **Run hooks on all files periodically**: Use `pre-commit run --all-files` to check the entire codebase.
-1. **Keep hooks fast**: Ensure hooks run quickly to avoid disrupting the development workflow.
-1. **Use auto-fixing hooks**: Prefer hooks that can automatically fix issues when possible.
-1. **Update hooks regularly**: Keep hook versions updated to benefit from improvements and bug fixes.
-1. **Include pre-commit in CI**: Run pre-commit in CI to ensure all contributors follow the same standards.
-1. **Document custom hooks**: If you add custom hooks, document their purpose and requirements.
-1. **Use local hooks for project-specific checks**: Add local hooks for checks specific to your project.
+2. **Keep hooks fast**: Ensure hooks run quickly to avoid disrupting the development workflow.
+3. **Use auto-fixing hooks**: Prefer hooks that can automatically fix issues when possible.
+4. **Update hooks regularly**: Keep hook versions updated to benefit from improvements and bug fixes.
+5. **Include pre-commit in CI**: Run pre-commit in CI to ensure all contributors follow the same standards.
+6. **Document custom hooks**: If you add custom hooks, document their purpose and requirements.
+7. **Use local hooks for project-specific checks**: Add local hooks for checks specific to your project.
 
 ## Common Hooks
 
-| Hook | Purpose |
-|------|---------|
-| `ruff` | Python linter and formatter |
-| `mypy` | Static type checking |
-| `black` | Python code formatter |
-| `isort` | Import sorter |
-| `flake8` | Python style guide enforcement |
-| `bandit` | Security linter |
-| `prettier` | Multi-language formatter |
-| `markdownlint` | Markdown linter |
-| `shellcheck` | Shell script linter |
+| Hook           | Purpose                        |
+| -------------- | ------------------------------ |
+| `ruff`         | Python linter and formatter    |
+| `mypy`         | Static type checking           |
+| `black`        | Python code formatter          |
+| `isort`        | Import sorter                  |
+| `flake8`       | Python style guide enforcement |
+| `bandit`       | Security linter                |
+| `prettier`     | Multi-language formatter       |
+| `markdownlint` | Markdown linter                |
+| `shellcheck`   | Shell script linter            |
 
 ## Troubleshooting
 

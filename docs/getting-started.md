@@ -28,12 +28,12 @@ A comprehensive Python project template with built-in logging, configuration man
 - **Lazy loading** for improved import performance
 - **Comprehensive testing** with pytest
 - **Code quality tools**:
-  - Ruff for linting and formatting
-  - Pyright for static type checking
-  - Bandit for security checks
-  - Vulture for dead code detection
-  - Interrogate for docstring coverage
-  - Darglint for docstring validation
+    - Ruff for linting and formatting
+    - Pyright for static type checking
+    - Bandit for security checks
+    - Vulture for dead code detection
+    - Interrogate for docstring coverage
+    - Darglint for docstring validation
 - **GitHub Actions** for CI/CD with pre-commit checks
 - **Comprehensive badge system** with dynamic quality indicators
 - **Documentation** with MkDocs for beautiful, searchable documentation
@@ -48,40 +48,19 @@ A comprehensive Python project template with built-in logging, configuration man
 
 ### Important: Do not skip these steps!
 
-1. Clone the repository:
-
 ```bash
+# Clone the repository
 git clone https://github.com/yourusername/python-starting-project.git
 cd python-starting-project
-```
 
-2. Install dependencies with uv:
-
-```bash
+# Install dependencies
 uv sync
-```
 
-3. Install pre-commit hooks:
-
-```bash
+# Install pre-commit hooks:
 uv run pre-commit install
-```
 
-4. Run pre-commit hooks to verify everything works:
-
-```bash
-# Run all pre-commit hooks to check your setup
+# Run pre-commit hooks to verify everything works:
 uv run poe pre
-```
-
-5. Open the project in your preferred IDE:
-
-```bash
-# For VSCode
-code .
-
-# For Cursor
-cursor .
 ```
 
 ## Project Structure
@@ -200,17 +179,17 @@ The project is configured to work with both VSCode and Cursor:
 For the best development experience with VSCode:
 
 1. Open the project in VSCode
-1. Install recommended extensions when prompted
-1. Use the integrated terminal for running commands
-1. Use the built-in debugger for debugging
+2. Install recommended extensions when prompted
+3. Use the integrated terminal for running commands
+4. Use the built-in debugger for debugging
 
 ### Cursor Integration
 
 Cursor provides all VSCode features plus AI-assisted development:
 
 1. Open the project in Cursor
-1. Cursor will automatically use the project's settings and extensions
-1. Use AI features to help with code completion, refactoring, and documentation
+2. Cursor will automatically use the project's settings and extensions
+3. Use AI features to help with code completion, refactoring, and documentation
 
 ## Next Steps
 

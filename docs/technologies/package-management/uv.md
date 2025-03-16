@@ -31,10 +31,10 @@ uv --version
 In this project, UV is used to:
 
 1. Manage project dependencies
-1. Create and update virtual environments
-1. Run Python scripts and commands in the project's environment
-1. Execute development tools and test runners
-1. Ensure reproducible builds with dependency pinning
+2. Create and update virtual environments
+3. Run Python scripts and commands in the project's environment
+4. Execute development tools and test runners
+5. Ensure reproducible builds with dependency pinning
 
 ## Configuration in This Project
 
@@ -43,17 +43,17 @@ UV uses the standard `pyproject.toml` file for dependency management:
 ```toml
 [project]
 dependencies = [
-    "pydantic>=2.0.0",
-    "pydantic-settings>=2.0.0",
-    "lazy-loader>=0.3",
+  "pydantic>=2.0.0",
+  "pydantic-settings>=2.0.0",
+  "lazy-loader>=0.3",
 ]
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=7.0.0",
-    "pytest-cov>=4.1.0",
-    "ruff>=0.1.0",
-    # Other development dependencies
+  "pytest>=7.0.0",
+  "pytest-cov>=4.1.0",
+  "ruff>=0.1.0",
+  # Other development dependencies
 ]
 ```
 
@@ -147,34 +147,34 @@ tests/test_module1.py ..........................................  [100%]
 
 UV significantly outperforms traditional Python package managers:
 
-| Operation | pip | pip-tools | UV |
-|-----------|-----|-----------|-----|
-| Fresh install (42 packages) | 12.5s | 10.2s | 1.2s |
-| Dependency resolution | 8.3s | 5.1s | 0.3s |
-| No-op reinstall | 2.1s | 1.8s | 0.1s |
+| Operation                   | pip   | pip-tools | UV   |
+| --------------------------- | ----- | --------- | ---- |
+| Fresh install (42 packages) | 12.5s | 10.2s     | 1.2s |
+| Dependency resolution       | 8.3s  | 5.1s      | 0.3s |
+| No-op reinstall             | 2.1s  | 1.8s      | 0.1s |
 
 ## Best Practices
 
 1. **Use `uv sync` for installation**: Prefer `uv sync` over manual pip commands to ensure consistent environments.
-1. **Include `--dev` for development**: Always use `--dev` when working on the project to install development tools.
-1. **Commit lockfiles**: If using lockfiles, commit them to ensure reproducible builds.
-1. **Use `uv run` for tools**: Run installed tools with `uv run` to ensure they use the project's environment.
-1. **Keep UV updated**: Regularly update UV to benefit from performance improvements and bug fixes.
-1. **Use virtual environments**: Always work within a virtual environment to isolate project dependencies.
-1. **Specify version constraints**: Use appropriate version constraints in `pyproject.toml` to avoid unexpected updates.
+2. **Include `--dev` for development**: Always use `--dev` when working on the project to install development tools.
+3. **Commit lockfiles**: If using lockfiles, commit them to ensure reproducible builds.
+4. **Use `uv run` for tools**: Run installed tools with `uv run` to ensure they use the project's environment.
+5. **Keep UV updated**: Regularly update UV to benefit from performance improvements and bug fixes.
+6. **Use virtual environments**: Always work within a virtual environment to isolate project dependencies.
+7. **Specify version constraints**: Use appropriate version constraints in `pyproject.toml` to avoid unexpected updates.
 
 ## Common Commands
 
-| Command | Description |
-|---------|-------------|
-| `uv sync` | Install dependencies from pyproject.toml |
-| `uv sync --dev` | Install dependencies including development dependencies |
-| `uv sync --upgrade` | Upgrade all dependencies to their latest versions |
-| `uv add package` | Add a new dependency |
-| `uv add --dev package` | Add a new development dependency |
-| `uv run command` | Run a command in the project's environment |
-| `uv pip install package` | Install a package (pip-compatible interface) |
-| `uv venv` | Create a virtual environment |
+| Command                  | Description                                             |
+| ------------------------ | ------------------------------------------------------- |
+| `uv sync`                | Install dependencies from pyproject.toml                |
+| `uv sync --dev`          | Install dependencies including development dependencies |
+| `uv sync --upgrade`      | Upgrade all dependencies to their latest versions       |
+| `uv add package`         | Add a new dependency                                    |
+| `uv add --dev package`   | Add a new development dependency                        |
+| `uv run command`         | Run a command in the project's environment              |
+| `uv pip install package` | Install a package (pip-compatible interface)            |
+| `uv venv`                | Create a virtual environment                            |
 
 ## Resources
 

@@ -163,9 +163,9 @@ poe pre-commit
 This project uses GitHub Actions to run pre-commit hooks in CI/CD pipelines. The workflow is defined in `.github/workflows/pre-commit.yml` and:
 
 1. Runs on every pull request and push to the main branch
-1. Uses uv for dependency management following Astral's best practices
-1. Installs all project dependencies
-1. Runs all pre-commit hooks on all files
+2. Uses uv for dependency management following Astral's best practices
+3. Installs all project dependencies
+4. Runs all pre-commit hooks on all files
 
 This ensures that all code meets quality standards before being merged. The workflow configuration:
 
@@ -189,12 +189,12 @@ jobs:
         uses: astral-sh/setup-uv@v5
         with:
           enable-cache: true
-          cache-dependency-glob: "pyproject.toml"
+          cache-dependency-glob: pyproject.toml
 
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version-file: "pyproject.toml"
+          python-version-file: pyproject.toml
 
       - name: Install dependencies
         run: uv sync --all-extras --dev
@@ -218,7 +218,7 @@ However, this is discouraged and should only be used in exceptional circumstance
 To add a new pre-commit hook:
 
 1. Add the hook configuration to `.pre-commit-config.yaml`
-1. Add any necessary dependencies to `pyproject.toml` under `[dependency-groups.dev]`
-1. Add any tool-specific configuration to `pyproject.toml`
-1. Run `uv sync` to install the new dependencies
-1. Run `pre-commit install` to update the hooks
+2. Add any necessary dependencies to `pyproject.toml` under `[dependency-groups.dev]`
+3. Add any tool-specific configuration to `pyproject.toml`
+4. Run `uv sync` to install the new dependencies
+5. Run `pre-commit install` to update the hooks

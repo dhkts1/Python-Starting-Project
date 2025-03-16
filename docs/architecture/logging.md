@@ -35,17 +35,17 @@ logger.critical("Critical message")
 
 The logging system can be configured through the following settings:
 
-| Setting | Type | Default | Description |
-|---------|------|---------|-------------|
-| `LOG_LEVEL` | `str` | "INFO" | The logging level |
+| Setting      | Type  | Default                                                | Description            |
+| ------------ | ----- | ------------------------------------------------------ | ---------------------- |
+| `LOG_LEVEL`  | `str` | "INFO"                                                 | The logging level      |
 | `LOG_FORMAT` | `str` | "%(asctime)s - %(name)s - %(levelname)s - %(message)s" | The log message format |
-| `LOG_FILE` | `str` | "logs/app.log" | Path to the log file |
+| `LOG_FILE`   | `str` | "logs/app.log"                                         | Path to the log file   |
 
 ## Customizing Logging
 
 To customize logging for your application:
 
-1. Modify the log format, level, or handlers in `src/utils/logging.py`:
+# Modify the log format, level, or handlers in `src/utils/logging.py`:
 
 ```python
 def setup_logging() -> None:
@@ -57,7 +57,7 @@ def setup_logging() -> None:
     # ...
 ```
 
-2. Add custom log filters or formatters as needed:
+# Add custom log filters or formatters as needed:
 
 ```python
 class CustomFilter(logging.Filter):
@@ -69,7 +69,7 @@ class CustomFilter(logging.Filter):
         return True
 ```
 
-3. Configure component-specific loggers using the `get_logger` function:
+# Configure component-specific loggers using the `get_logger` function:
 
 ```python
 # Get a logger for a specific component

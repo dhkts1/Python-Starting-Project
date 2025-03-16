@@ -37,10 +37,10 @@ uv pip install mkdocs
 In this project, MkDocs is used to:
 
 1. Generate the project documentation website
-1. Provide a searchable interface for documentation
-1. Organize documentation in a logical structure
-1. Enable easy navigation between documentation sections
-1. Facilitate documentation updates alongside code changes
+2. Provide a searchable interface for documentation
+3. Organize documentation in a logical structure
+4. Enable easy navigation between documentation sections
+5. Facilitate documentation updates alongside code changes
 
 ## Configuration in This Project
 
@@ -86,20 +86,20 @@ nav:
   - Getting Started: getting-started.md
   - Overview: overview.md
   - Development:
-    - Workflow: development/workflow.md
-    - Pre-commit Hooks: development/pre-commit-hooks.md
+      - Workflow: development/workflow.md
+      - Pre-commit Hooks: development/pre-commit-hooks.md
   - Technologies:
-    - Package Management:
-      - UV: technologies/package-management/uv.md
-    - Code Quality:
-      - Ruff: technologies/code-quality/ruff.md
+      - Package Management:
+          - UV: technologies/package-management/uv.md
+      - Code Quality:
+          - Ruff: technologies/code-quality/ruff.md
   - API Reference: api/
 ```
 
 1. Material theme provides a modern, responsive design
-1. Adds copy buttons to all code blocks
-1. MkDocstrings plugin generates API documentation from docstrings
-1. Markdown extensions enhance the basic Markdown syntax
+2. Adds copy buttons to all code blocks
+3. MkDocstrings plugin generates API documentation from docstrings
+4. Markdown extensions enhance the basic Markdown syntax
 
 ## Basic Usage
 
@@ -120,6 +120,7 @@ my-project/
 To preview the documentation locally:
 
 === "Using poe tasks"
+
 \`\`\`bash linenums="1"
 \# Start the development server
 uv run poe docs-serve
@@ -134,6 +135,7 @@ uv run poe docs-deploy
 ````
 
 === "Using direct commands"
+
 \`\`\`bash linenums="1"
 \# Start the development server
 uv run mkdocs serve
@@ -174,12 +176,15 @@ This is a paragraph with **bold** and *italic* text.
 ### Code Blocks
 
 === "Basic Code Block"
+
 ```` markdown linenums="1"     ```python     def hello_world():         print("Hello, world!")     ```      ````
 
 === "With Line Numbers"
+
 ```` markdown linenums="1"     ```python linenums="1"     def hello_world():         print("Hello, world!")     ```      ````
 
 === "With Annotations"
+
 \`\`\`\`markdown linenums="1"
 `python     def hello_world():  # (1)         print("Hello, world!")  # (2)     `
 
@@ -205,15 +210,15 @@ This is a paragraph with **bold** and *italic* text.
 ## Best Practices
 
 1. **Organize documentation logically**: Structure your documentation in a way that makes sense for users.
-1. **Keep documentation up-to-date**: Update documentation when code changes.
-1. **Use descriptive page titles**: Make it easy for users to find what they're looking for.
-1. **Include examples**: Provide code examples and use cases.
-1. **Use admonitions for important information**: Highlight warnings, notes, and tips.
-1. **Add screenshots when helpful**: Visual aids can improve understanding.
-1. **Maintain a consistent style**: Use a consistent writing style throughout.
-1. **Link related content**: Cross-reference related documentation.
-1. **Test documentation**: Ensure code examples work and instructions are accurate.
-1. **Get feedback**: Ask users for feedback on documentation clarity.
+2. **Keep documentation up-to-date**: Update documentation when code changes.
+3. **Use descriptive page titles**: Make it easy for users to find what they're looking for.
+4. **Include examples**: Provide code examples and use cases.
+5. **Use admonitions for important information**: Highlight warnings, notes, and tips.
+6. **Add screenshots when helpful**: Visual aids can improve understanding.
+7. **Maintain a consistent style**: Use a consistent writing style throughout.
+8. **Link related content**: Cross-reference related documentation.
+9. **Test documentation**: Ensure code examples work and instructions are accurate.
+10. **Get feedback**: Ask users for feedback on documentation clarity.
 
 ## Advanced Features
 
@@ -233,7 +238,7 @@ Configure in `mkdocs.yml`:
 
 ```yaml linenums="1"
 theme:
-  name: null
+  name:
   custom_dir: mkdocs/custom_theme/
 ```
 
@@ -251,7 +256,7 @@ plugins:
 ```
 
 1. Minifies HTML output for faster loading
-1. Adds last updated dates to pages based on git history
+2. Adds last updated dates to pages based on git history
 
 ## Troubleshooting
 
@@ -262,24 +267,24 @@ plugins:
 If navigation isn't updating:
 
 1. Check the `nav` section in `mkdocs.yml`
-1. Ensure file paths are correct
-1. Restart the development server
+2. Ensure file paths are correct
+3. Restart the development server
 
 #### Build Errors
 
 If you encounter build errors:
 
 1. Check for syntax errors in Markdown files
-1. Verify that all linked files exist
-1. Check for configuration errors in `mkdocs.yml`
+2. Verify that all linked files exist
+3. Check for configuration errors in `mkdocs.yml`
 
 #### Search Not Working
 
 If search isn't working:
 
 1. Ensure the search plugin is enabled
-1. Rebuild the documentation
-1. Check for JavaScript errors in the browser console
+2. Rebuild the documentation
+3. Check for JavaScript errors in the browser console
 
 ## Resources
 

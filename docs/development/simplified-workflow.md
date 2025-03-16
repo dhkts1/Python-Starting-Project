@@ -23,12 +23,12 @@ git push
 When you run `git commit`, the pre-commit hooks automatically:
 
 1. **Format your code** using Ruff
-1. **Lint your code** to check for errors and style issues
-1. **Check types** using Pyright
-1. **Detect security issues** using Bandit
-1. **Find dead code** using Vulture
-1. **Verify docstring coverage** using Interrogate
-1. **Measure code complexity** using Radon and Xenon
+2. **Lint your code** to check for errors and style issues
+3. **Check types** using Pyright
+4. **Detect security issues** using Bandit
+5. **Find dead code** using Vulture
+6. **Verify docstring coverage** using Interrogate
+7. **Measure code complexity** using Radon and Xenon
 
 If any of these checks fail, the commit is aborted, and you'll see error messages explaining what needs to be fixed.
 
@@ -47,9 +47,9 @@ If any of these checks fail, the commit is aborted, and you'll see error message
 If your commit fails due to pre-commit hooks:
 
 1. Read the error messages to understand what failed
-1. Fix the issues in your code
-1. Run `git add .` to stage the fixes
-1. Try committing again with `git commit -m "Your message"`
+2. Fix the issues in your code
+3. Run `git add .` to stage the fixes
+4. Try committing again with `git commit -m "Your message"`
 
 ### Skipping Pre-commit Hooks (Not Recommended)
 

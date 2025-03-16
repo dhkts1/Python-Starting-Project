@@ -36,9 +36,9 @@ uv pip install bandit
 In this project, Bandit is used to:
 
 1. Identify potential security vulnerabilities in the codebase
-1. Enforce security best practices
-1. Prevent common security mistakes
-1. Run as part of the pre-commit hooks and CI/CD pipeline
+2. Enforce security best practices
+3. Prevent common security mistakes
+4. Run as part of the pre-commit hooks and CI/CD pipeline
 
 ## Configuration in This Project
 
@@ -47,7 +47,7 @@ Bandit is configured in the `pyproject.toml` file:
 ```toml
 [tool.bandit]
 exclude_dirs = ["tests", ".venv", ".git"]
-skips = ["B101"] # Skip assert statements warning
+skips = ["B101"]                          # Skip assert statements warning
 ```
 
 This configuration:
@@ -126,6 +126,7 @@ open("sensitive.txt", "w").write("secret")
 
 # More secure
 import os
+
 with open("sensitive.txt", "w") as f:
     os.chmod("sensitive.txt", 0o600)  # Owner read/write only
     f.write("secret")
@@ -139,6 +140,7 @@ password = "hardcoded_password"
 
 # Better approach
 import os
+
 password = os.environ.get("PASSWORD")
 ```
 
@@ -147,20 +149,22 @@ password = os.environ.get("PASSWORD")
 ```python
 # Insecure
 import pickle
+
 data = pickle.loads(user_input)  # Arbitrary code execution risk
 
 # Better approach
 import json
+
 data = json.loads(user_input)
 ```
 
 ## Best Practices
 
 1. **Run Bandit regularly**: Include Bandit in your pre-commit hooks and CI/CD pipeline.
-1. **Address high-severity issues immediately**: High-severity issues with high confidence should be fixed as soon as possible.
-1. **Review false positives**: Some issues flagged by Bandit may be false positives. Review them carefully and add skips only when necessary.
-1. **Use context-specific configurations**: Different parts of your codebase may need different security checks.
-1. **Keep Bandit updated**: Security tools should be kept up to date to catch the latest known vulnerabilities.
+2. **Address high-severity issues immediately**: High-severity issues with high confidence should be fixed as soon as possible.
+3. **Review false positives**: Some issues flagged by Bandit may be false positives. Review them carefully and add skips only when necessary.
+4. **Use context-specific configurations**: Different parts of your codebase may need different security checks.
+5. **Keep Bandit updated**: Security tools should be kept up to date to catch the latest known vulnerabilities.
 
 ## Troubleshooting
 
@@ -171,16 +175,16 @@ data = json.loads(user_input)
 If you're getting too many false positives:
 
 1. Review the issues to ensure they're actually false positives
-1. Add specific skips for the relevant checks in `pyproject.toml`
-1. Use inline skips for specific lines: `# nosec` or `# nosec B101`
+2. Add specific skips for the relevant checks in `pyproject.toml`
+3. Use inline skips for specific lines: `# nosec` or `# nosec B101`
 
 #### Integration with Other Tools
 
 If you're having issues integrating Bandit with other tools:
 
 1. Ensure you're using compatible versions
-1. Check that your configuration files are correctly formatted
-1. Try running Bandit directly to isolate the issue
+2. Check that your configuration files are correctly formatted
+3. Try running Bandit directly to isolate the issue
 
 ## Resources
 

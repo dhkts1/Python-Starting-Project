@@ -112,9 +112,9 @@ This configuration allows you to:
 ### Getting Started with VSCode
 
 1. Install [Visual Studio Code](https://code.visualstudio.com/)
-1. Open the project folder in VSCode
-1. When prompted, install the recommended extensions
-1. VSCode will automatically use the project's settings
+2. Open the project folder in VSCode
+3. When prompted, install the recommended extensions
+4. VSCode will automatically use the project's settings
 
 ### Key VSCode Features
 
@@ -137,28 +137,28 @@ The Source Control view can be accessed by:
 
 1. **Changes View**:
 
-   - Shows all modified, added, and deleted files
-   - Provides a clear overview of what has changed in your project
-   - Allows you to stage individual files or all changes at once
+    - Shows all modified, added, and deleted files
+    - Provides a clear overview of what has changed in your project
+    - Allows you to stage individual files or all changes at once
 
-1. **Diff Viewer**:
+2. **Diff Viewer**:
 
-   - Click on any modified file to see a side-by-side comparison
-   - Clearly highlights what has been added, changed, or removed
-   - Makes reviewing AI-generated code changes much easier
-   - Allows you to accept or reject changes at a granular level
+    - Click on any modified file to see a side-by-side comparison
+    - Clearly highlights what has been added, changed, or removed
+    - Makes reviewing AI-generated code changes much easier
+    - Allows you to accept or reject changes at a granular level
 
-1. **Commit Management**:
+3. **Commit Management**:
 
-   - Write commit messages and commit changes directly from the editor
-   - View commit history and browse previous versions
-   - Create and switch between branches
+    - Write commit messages and commit changes directly from the editor
+    - View commit history and browse previous versions
+    - Create and switch between branches
 
-1. **Integration with GitHub**:
+4. **Integration with GitHub**:
 
-   - Push and pull changes to/from remote repositories
-   - Create and review pull requests
-   - Manage issues
+    - Push and pull changes to/from remote repositories
+    - Create and review pull requests
+    - Manage issues
 
 #### Best Practices for Source Control
 
@@ -172,9 +172,9 @@ The Source Control view can be accessed by:
 When working with AI-generated code:
 
 1. After the AI makes changes, open the Source Control panel to see all modified files
-1. Click on each file to review the changes in the diff viewer
-1. Verify that the changes match your expectations and make any necessary adjustments
-1. Stage and commit the changes with a descriptive message
+2. Click on each file to review the changes in the diff viewer
+3. Verify that the changes match your expectations and make any necessary adjustments
+4. Stage and commit the changes with a descriptive message
 
 This workflow ensures you maintain full control over your codebase while benefiting from AI assistance.
 
@@ -268,10 +268,10 @@ class Settings(BaseSettings):  # (1)!
 ```
 
 1. Uses Pydantic's BaseSettings for environment variable loading and validation
-1. Default application name that can be overridden via environment variables
-1. Default log level is INFO, can be changed to DEBUG for more verbose logging
-1. Uses a factory function to create the logs directory path
-1. Configuration for loading settings from .env file with UTF-8 encoding
+2. Default application name that can be overridden via environment variables
+3. Default log level is INFO, can be changed to DEBUG for more verbose logging
+4. Uses a factory function to create the logs directory path
+5. Configuration for loading settings from .env file with UTF-8 encoding
 
 #### 3. Advanced Code Block Features
 
@@ -329,12 +329,12 @@ This renders the complete documentation for the settings and logging modules, in
 The project includes several custom tasks that can be run from either editor:
 
 1. Open the Command Palette (`Ctrl+Shift+P` or `Cmd+Shift+P`)
-1. Type "Tasks: Run Task"
-1. Select one of the available tasks:
-   - Run Tests
-   - Build Documentation
-   - Lint Code
-   - Format Code
+2. Type "Tasks: Run Task"
+3. Select one of the available tasks:
+    - Run Tests
+    - Build Documentation
+    - Lint Code
+    - Format Code
 
 ## Keyboard Shortcuts
 
@@ -354,21 +354,21 @@ Here are some useful keyboard shortcuts for working with Python in both editors:
 
 1. **Use AI Suggestions Wisely**
 
-   - Review AI-generated code for correctness
-   - Understand suggested changes before applying
-   - Use AI as a tool, not a replacement for understanding
+    - Review AI-generated code for correctness
+    - Understand suggested changes before applying
+    - Use AI as a tool, not a replacement for understanding
 
-1. **Documentation**
+2. **Documentation**
 
-   - Let AI help generate initial documentation
-   - Review and enhance AI-generated content
-   - Keep documentation up-to-date with code changes
+    - Let AI help generate initial documentation
+    - Review and enhance AI-generated content
+    - Keep documentation up-to-date with code changes
 
-1. **Code Quality**
+3. **Code Quality**
 
-   - Use AI to maintain consistent code style
-   - Leverage AI for complex refactoring
-   - Run automated tests after AI-suggested changes
+    - Use AI to maintain consistent code style
+    - Leverage AI for complex refactoring
+    - Run automated tests after AI-suggested changes
 
 ## Additional Resources
 
@@ -396,37 +396,37 @@ The project includes MCP configuration in the `.cursor/mcp.json` file:
 
 ```json
 {
-    "mcpServers": {
-        "sequential-thinking": {
-            "command": "npx",
-            "args": [
-                "-y",
-                "@modelcontextprotocol/server-sequential-thinking"
-            ]
-        },
-        "fetch": {
-            "command": "uvx",
-            "args": [
-                "mcp-server-fetch"
-            ]
-        }
+  "mcpServers": {
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "fetch": {
+      "command": "uvx",
+      "args": [
+        "mcp-server-fetch"
+      ]
     }
+  }
 }
 ```
 
 This configuration enables two MCP servers:
 
 1. **sequential-thinking**: Helps break down complex problems into manageable steps
-1. **fetch**: Allows the AI to retrieve information from the internet
+2. **fetch**: Allows the AI to retrieve information from the internet
 
 ### Using MCPs
 
 When working with AI tools that support MCP:
 
 1. The AI will automatically use the appropriate MCP when needed
-1. For long-running operations or multi-step processes, you may see the AI thinking through steps
-1. When the AI is using an MCP and needs your input to continue, simply respond with "continue"
-1. For fetch operations, the AI may retrieve information from the internet to provide more accurate responses
+2. For long-running operations or multi-step processes, you may see the AI thinking through steps
+3. When the AI is using an MCP and needs your input to continue, simply respond with "continue"
+4. For fetch operations, the AI may retrieve information from the internet to provide more accurate responses
 
 ### Global MCP Rules
 
@@ -447,12 +447,12 @@ For example:
 To ensure MCPs are enabled:
 
 1. Make sure the `.cursor/mcp.json` file exists in your project
-1. Install the required dependencies:
-   ```bash
-   npm install -g @modelcontextprotocol/server-sequential-thinking
-   pip install mcp-server-fetch
-   ```
-1. When working with AI tools, verify they have access to the MCP configuration
+2. Install the required dependencies:
+    ```bash
+    npm install -g @modelcontextprotocol/server-sequential-thinking
+    pip install mcp-server-fetch
+    ```
+3. When working with AI tools, verify they have access to the MCP configuration
 
 ## AI-Enhanced Development with Cursor
 
@@ -461,12 +461,12 @@ For developers interested in AI-assisted development, [Cursor](https://cursor.sh
 ### Getting Started with Cursor
 
 1. Install [Cursor](https://cursor.sh)
-1. Open the project folder in Cursor:
-   ```bash
-   cursor .
-   ```
-1. Cursor will automatically use the same settings and extensions as VSCode
-1. Let Cursor's AI agent analyze your codebase
+2. Open the project folder in Cursor:
+    ```bash
+    cursor .
+    ```
+3. Cursor will automatically use the same settings and extensions as VSCode
+4. Let Cursor's AI agent analyze your codebase
 
 ### AI-Assisted Development Features
 
@@ -495,8 +495,8 @@ Cursor provides several AI-powered features that significantly improve the devel
 Cursor has built-in support for Model Context Protocol (MCP), making it particularly powerful for complex development tasks. When using Cursor:
 
 1. The AI automatically leverages MCPs when appropriate
-1. You can see the AI's thought process through sequential thinking
-1. For long-running operations, simply type "continue" when prompted
-1. The fetch MCP allows the AI to retrieve up-to-date information from the internet
+2. You can see the AI's thought process through sequential thinking
+3. For long-running operations, simply type "continue" when prompted
+4. The fetch MCP allows the AI to retrieve up-to-date information from the internet
 
 This integration makes Cursor especially valuable for tackling complex development challenges and staying current with the latest programming practices.

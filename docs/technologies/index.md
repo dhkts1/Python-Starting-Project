@@ -60,12 +60,12 @@ This section provides documentation for the various technologies and tools used 
 Each technology page follows a consistent structure:
 
 1. **Overview** - A brief description of what the tool does and its key features
-1. **Installation** - How to install the tool in this project
-1. **How It's Used in This Project** - Specific ways the tool is utilized
-1. **Configuration in This Project** - How the tool is configured
-1. **Basic Usage** - Common commands and usage patterns
-1. **Examples** - Practical examples of using the tool
-1. **Best Practices** - Recommended approaches when using the tool
-1. **Resources** - Links to official documentation and helpful resources
+2. **Installation** - How to install the tool in this project
+3. **How It's Used in This Project** - Specific ways the tool is utilized
+4. **Configuration in This Project** - How the tool is configured
+5. **Basic Usage** - Common commands and usage patterns
+6. **Examples** - Practical examples of using the tool
+7. **Best Practices** - Recommended approaches when using the tool
+8. **Resources** - Links to official documentation and helpful resources
 
 For a more comprehensive understanding of how these technologies work together, see the [Development Workflow](../development/workflow.md) documentation.

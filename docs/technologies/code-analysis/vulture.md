@@ -38,8 +38,8 @@ uv pip install vulture
 In this project, Vulture is used to:
 
 1. Identify unused code in the codebase
-1. Maintain code quality by removing dead code
-1. Run as part of the pre-commit hooks and CI/CD pipeline
+2. Maintain code quality by removing dead code
+3. Run as part of the pre-commit hooks and CI/CD pipeline
 
 ## Configuration in This Project
 
@@ -151,10 +151,10 @@ uv run vulture src --min-confidence 70
 ## Best Practices
 
 1. **Run Vulture regularly**: Include Vulture in your pre-commit hooks and CI/CD pipeline.
-1. **Start with a high confidence threshold**: Begin with a high threshold (e.g., 90%) and gradually lower it as you clean up obvious dead code.
-1. **Maintain a whitelist**: Keep a whitelist of false positives to avoid repeatedly flagging the same code.
-1. **Verify before removing**: Always verify that code is truly unused before removing it, especially for public APIs.
-1. **Consider dynamic usage**: Remember that code might be used dynamically (e.g., through introspection or imports in rarely-run code paths).
+2. **Start with a high confidence threshold**: Begin with a high threshold (e.g., 90%) and gradually lower it as you clean up obvious dead code.
+3. **Maintain a whitelist**: Keep a whitelist of false positives to avoid repeatedly flagging the same code.
+4. **Verify before removing**: Always verify that code is truly unused before removing it, especially for public APIs.
+5. **Consider dynamic usage**: Remember that code might be used dynamically (e.g., through introspection or imports in rarely-run code paths).
 
 ## Troubleshooting
 
@@ -165,16 +165,16 @@ uv run vulture src --min-confidence 70
 If you're getting too many false positives:
 
 1. Increase the minimum confidence threshold
-1. Add more entries to your whitelist
-1. Use more specific exclude patterns
+2. Add more entries to your whitelist
+3. Use more specific exclude patterns
 
 #### Missing Dead Code
 
 If Vulture is missing dead code:
 
 1. Ensure you're scanning all relevant directories
-1. Lower the confidence threshold
-1. Check if the code is being imported or used dynamically
+2. Lower the confidence threshold
+3. Check if the code is being imported or used dynamically
 
 ## Resources
 

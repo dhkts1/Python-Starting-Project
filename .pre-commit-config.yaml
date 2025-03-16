@@ -51,6 +51,13 @@ repos:
         language: system
         pass_filenames: false
         types: [python]
+      - id: mdformat
+        name: mdformat
+        description: "Format markdown files"
+        entry: poe mdformat
+        language: system
+        pass_filenames: false
+        types: [markdown]
   - repo: https://github.com/codespell-project/codespell
     rev: v2.4.1
     hooks:
@@ -122,8 +129,3 @@ repos:
     hooks:
       - id: commitizen
         stages: [commit-msg]
-
-  - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.22
-    hooks:
-      - id: mdformat

@@ -83,25 +83,24 @@ print(f"Debug mode: {settings.DEBUG}")
 
 ## Available Settings
 
-| Setting | Type | Default | Description |
-| ------- | ---- | ------- | ----------- |
-| `APP_NAME` | `str` | "Python Starting Project" | The name of the application |
-| `APP_VERSION` | `str` | "0.1.0" | The version of the application |
-| `DEBUG` | `bool` | `False` | Enable or disable debug mode |
-| `LOG_LEVEL` | `str` | "INFO" | The logging level |
-| `LOG_FORMAT` | `str` | "%(asctime)s - %(name)s - %(levelname)s - %(message)s" | The log message format |
-| `LOG_FILE` | `str` | "logs/app.log" | Path to the log file |
-| `BASE_DIR` | `Path` | `Path(__file__)` | Base directory of the application |
-| `LOG_DIR` | `Path` | `Path("logs")` | Directory for log files |
-| `env_file_found` | `bool` | `False` | Indicates whether a .env file was found during initialization |
+| Setting          | Type   | Default                                                | Description                                                   |
+| ---------------- | ------ | ------------------------------------------------------ | ------------------------------------------------------------- |
+| `APP_NAME`       | `str`  | "Python Starting Project"                              | The name of the application                                   |
+| `APP_VERSION`    | `str`  | "0.1.0"                                                | The version of the application                                |
+| `DEBUG`          | `bool` | `False`                                                | Enable or disable debug mode                                  |
+| `LOG_LEVEL`      | `str`  | "INFO"                                                 | The logging level                                             |
+| `LOG_FORMAT`     | `str`  | "%(asctime)s - %(name)s - %(levelname)s - %(message)s" | The log message format                                        |
+| `LOG_FILE`       | `str`  | "logs/app.log"                                         | Path to the log file                                          |
+| `BASE_DIR`       | `Path` | `Path(__file__)`                                       | Base directory of the application                             |
+| `LOG_DIR`        | `Path` | `Path("logs")`                                         | Directory for log files                                       |
+| `env_file_found` | `bool` | `False`                                                | Indicates whether a .env file was found during initialization |
 
 ## Adding New Settings
 
 To add new settings to your application:
 
-1. Add the setting with its type annotation and default value to the `Settings` class in `src/utils/settings.py`:
-
 ```python
+# Add the setting with its type annotation and default value to the `Settings` class in `src/utils/settings.py`:
 class Settings(BaseSettings):
     # Existing settings...
 
@@ -112,16 +111,14 @@ class Settings(BaseSettings):
     )
 ```
 
-2. Add the setting to `.env.example` with a comment explaining its purpose:
-
 ```
+# Add the setting to `.env.example` with a comment explaining its purpose:
 # New setting description
 NEW_SETTING=default value
 ```
 
-3. Use the setting in your code:
-
 ```python
+# Use the setting in your code:
 from utils.settings import settings
 
 print(f"New setting: {settings.NEW_SETTING}")

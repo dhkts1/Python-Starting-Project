@@ -33,9 +33,9 @@ uv pip install pytest-cov
 In this project, Pytest-cov is used to:
 
 1. Measure test coverage across the codebase
-1. Generate coverage reports as part of the CI/CD pipeline
-1. Identify areas of the code that need more testing
-1. Enforce minimum coverage thresholds
+2. Generate coverage reports as part of the CI/CD pipeline
+3. Identify areas of the code that need more testing
+4. Enforce minimum coverage thresholds
 
 ## Configuration in This Project
 
@@ -115,19 +115,19 @@ The HTML report provides a detailed view of coverage, including:
 Pytest-cov supports different types of coverage measurement:
 
 1. **Statement Coverage**: Measures which statements in your code have been executed
-1. **Branch Coverage**: Measures which possible branches (if/else paths) have been taken
-1. **Function Coverage**: Measures which functions have been called
-1. **Line Coverage**: Measures which executable lines have been run
+2. **Branch Coverage**: Measures which possible branches (if/else paths) have been taken
+3. **Function Coverage**: Measures which functions have been called
+4. **Line Coverage**: Measures which executable lines have been run
 
 ## Best Practices
 
 1. **Aim for high coverage**: Strive for at least 80-90% code coverage.
-1. **Focus on critical paths**: Ensure business-critical code has near 100% coverage.
-1. **Don't just chase numbers**: High coverage doesn't guarantee good tests; focus on test quality too.
-1. **Use branch coverage**: Enable branch coverage to catch untested conditional paths.
-1. **Set minimum thresholds**: Use `--cov-fail-under` to enforce minimum coverage requirements.
-1. **Review coverage reports regularly**: Identify and address areas with low coverage.
-1. **Include coverage in CI**: Make coverage checks part of your continuous integration pipeline.
+2. **Focus on critical paths**: Ensure business-critical code has near 100% coverage.
+3. **Don't just chase numbers**: High coverage doesn't guarantee good tests; focus on test quality too.
+4. **Use branch coverage**: Enable branch coverage to catch untested conditional paths.
+5. **Set minimum thresholds**: Use `--cov-fail-under` to enforce minimum coverage requirements.
+6. **Review coverage reports regularly**: Identify and address areas with low coverage.
+7. **Include coverage in CI**: Make coverage checks part of your continuous integration pipeline.
 
 ## Resources
 
