@@ -1,6 +1,6 @@
 ## TL;DR
 
-I wanted a preconfigured Python environment with all the best tools and practices already set up, because doing this for every new project is a massive pain. Somehow this turned into a blog post about AI-assisted development. But hey, at least I now have atemplate that works out of the box!
+I wanted a preconfigured bleeding-edge Python environment with all the best tools and practices already set up, because doing this for every new project is a massive pain. Somehow this turned into a blog post about AI-assisted development. But hey, at least I now have a template that works out of the box!
 
 ## Quick Start
 

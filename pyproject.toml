@@ -78,7 +78,7 @@ bandit = "bandit -c pyproject.toml -r src --exclude tests,.venv,.git"
 interrogate = "interrogate -v src"
 test-coverage = "pytest -xvs -n auto --cov=src --cov-report=term-missing --cov-report=xml --cov-fail-under=80 --ignore=tests"
 vulture = "vulture src --min-confidence 80"
-xenon = "xenon src"
+xenon = "xenon src -a A -b A -m A --paths-in-front"
 
 [tool.ruff]
 exclude = [
