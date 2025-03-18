@@ -2,6 +2,15 @@
 
 A comprehensive learning template for Python applications with modern tools and best practices.
 
+If you know uv ,git, and cursor/VSCODE, and have python 3.11+ installed, just run the 4 commands below:
+
+```bash
+uv sync
+uv venv
+pre-commit install
+# to run prehooks locally
+poe pre
+```
 ## Quick Setup
 
 ### Prerequisites
@@ -24,14 +33,7 @@ Verify installation with:
 uv --version
 ```
 
-### Step 2: IDE Setup (Optional)
-
-For the best development experience, we recommend:
-
-- [Cursor](https://cursor.sh/) - AI-powered code editor (recommended)
-- [Visual Studio Code](https://code.visualstudio.com/) - Popular code editor
-
-### Step 3: Set Up Your Project
+### Step 2: Set Up Your Project
 
 You can either start from our template or clone the repository directly:
 
@@ -50,8 +52,8 @@ You can either start from our template or clone the repository directly:
 #### Option B: Direct Clone
 
 ```bash
-git clone https://github.com/yourusername/python-starting-project.git
-cd python-starting-project
+git clone https://github.com/dhkts1/Python-Starting-Project
+cd Python-Starting-Project
 ```
 
 ### Step 5: Install Dependencies and Create Virtual Environment
