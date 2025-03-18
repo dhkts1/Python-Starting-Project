@@ -66,10 +66,11 @@ cd python-starting-project
 uv sync
 
 # Install pre-commit hooks:
-uv run pre-commit install
+uv venv
+pre-commit install
 
 # Run pre-commit hooks to verify everything works:
-uv run poe pre
+poe pre
 ```
 
 ## Project Structure
@@ -119,12 +120,21 @@ uv sync
 - When dependencies are updated in `pyproject.toml`
 - When switching to a branch with different dependencies
 
-### 2. `uv run pre-commit install`
+### 2. `uv venv`
+
+Same as `source .venv/bin/activate`, it enters to the context of the virtual environment.
+and allows you to use the tools installed in the virtual environment.
+
+```bash
+uv venv
+```
+
+### 3. `pre-commit install`
 
 This command sets up the pre-commit hooks that automatically check your code quality before each commit:
 
 ```bash
-uv run pre-commit install
+pre-commit install
 ```
 
 **When to use it:**
@@ -153,7 +163,7 @@ git add .
 This command commits your staged changes:
 
 ```bash
-git commit -m "Your commit message"
+git commit -m "Add new feature"
 ```
 
 **When to use it:**
@@ -167,7 +177,8 @@ git commit -m "Your commit message"
 ```bash
 # Initial setup (only once)
 uv sync
-uv run pre-commit install
+uv venv
+pre-commit install
 
 # Development cycle (repeat as needed)
 # 1. Make changes to your code
@@ -175,6 +186,8 @@ uv run pre-commit install
 git add .
 # 3. Commit changes (pre-commit hooks run automatically)
 git commit -m "Add new feature"
+# 4. to run all github hooks without committing use
+poe pre
 ```
 
 That's it! With just these 4 commands, you can handle the entire development workflow while maintaining high code quality standards.

@@ -4,23 +4,82 @@ A comprehensive learning template for Python applications with modern tools and 
 
 ## Quick Setup
 
+### Prerequisites
+
+- Python 3.11+ installed on your system
+- Git installed on your system
+- Basic command-line knowledge
+
+### Step 1: Install UV Package Manager
+
+UV is a blazing-fast Python package manager written in Rust.
+
+#### For MacOS/Linux:
 1. Install [Cursor](https://cursor.sh/) - AI-powered code editor
 2. Install [UV](https://docs.astral.sh/uv/getting-started/installation/) - Modern Python package manager
-3. Clone the repository:
-    ```
-    git clone https://github.com/yourusername/python-starting-project.git
-    cd python-starting-project
-    ```
-4. Set up the environment:
-    ```
-    uv sync
-    uv venv
-    pre-commit install
-    ```
-5. Run pre-commit checks:
-    ```
-    poe pre
-    ```
+
+Verify installation with:
+
+```bash
+uv --version
+```
+
+### Step 2: IDE Setup (Optional)
+
+For the best development experience, we recommend:
+
+- [Cursor](https://cursor.sh/) - AI-powered code editor (recommended)
+- [Visual Studio Code](https://code.visualstudio.com/) - Popular code editor
+
+### Step 3: Set Up Your Project
+
+You can either start from our template or clone the repository directly:
+
+#### Option A: Use GitHub Template
+
+1. Go to the [Python Starting Project](https://github.com/dhkts1/Python-Starting-Project)
+2. Click the green "Use this template" button
+3. Choose "Create a new repository"
+4. Fill in your repository details
+5. Clone your new repository:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
+   ```
+
+#### Option B: Direct Clone
+
+```bash
+git clone https://github.com/yourusername/python-starting-project.git
+cd python-starting-project
+```
+
+### Step 5: Install Dependencies and Create Virtual Environment
+
+```bash
+uv sync
+```
+
+### Step 6: Set Up Pre-commit Hooks (all the format, linting, testing, etc tools that will run automatically when you commit)
+
+```bash
+# Install pre-commit hooks
+pre-commit install
+```
+
+### Step 7: Verify Your Setup
+
+```bash
+# Run all pre-commit checks
+poe pre
+```
+
+### Step 8: Run the Sample Application
+
+```bash
+# Run the main script
+python -m src.main
+```
 
 You're all set! Start developing with confidence.
 
@@ -40,6 +99,7 @@ This project serves as both a starting template and a learning tool for Python d
 For detailed information and guides, check out the project documentation:
 
 - **[Getting Started](docs/getting-started.md)**: Detailed setup and usage instructions
+- **[Tutorial: Setup Your First Project](docs/tutorials/setup-your-first-project.md)**: Step-by-step tutorial
 - **[Why](docs/index.md)**: The story behind this project
 - **[Architecture](docs/architecture/index.md)**: Configuration, logging, and project structure
 - **[Development](docs/development/index.md)**: Workflow, pre-commit hooks, and best practices
