@@ -238,8 +238,8 @@ def calculate_result(input_value: int) -> int:
 
 ## Further Reading
 
-- [Detailed Ruff documentation](/technologies/code-quality/ruff.md)
-- [Detailed Pyright documentation](/technologies/code-analysis/pyright.md)
+- [Detailed Ruff documentation](../technologies/code-quality/ruff.md)
+- [Detailed Pyright documentation](../technologies/code-analysis/pyright.md)
 - [Understanding pre-commit hooks](../development/pre-commit-hooks.md)
 
 ## Check Your Understanding
