@@ -1,5 +1,14 @@
 # Python Starting Project
 
+!!! note "New Documentation Structure"
+
+    This content is being migrated to a more learning-focused structure. See:
+
+    - [Beginner's Guide](learning-path/beginners-guide.md)
+    - [Setup Tutorial](tutorials/setup-your-first-project.md)
+
+    The original content will remain available until the migration is complete.
+
 A comprehensive Python project template with built-in logging, configuration management, and development tools. This template provides a solid foundation for building Python applications with best practices for configuration, logging, code quality, and project structure.
 
 <!-- Dynamic Badges -->
@@ -57,10 +66,11 @@ cd python-starting-project
 uv sync
 
 # Install pre-commit hooks:
-uv run pre-commit install
+uv venv
+pre-commit install
 
 # Run pre-commit hooks to verify everything works:
-uv run poe pre
+poe pre
 ```
 
 ## Project Structure
@@ -110,12 +120,21 @@ uv sync
 - When dependencies are updated in `pyproject.toml`
 - When switching to a branch with different dependencies
 
-### 2. `uv run pre-commit install`
+### 2. `uv venv`
+
+Same as `source .venv/bin/activate`, it enters to the context of the virtual environment.
+and allows you to use the tools installed in the virtual environment.
+
+```bash
+uv venv
+```
+
+### 3. `pre-commit install`
 
 This command sets up the pre-commit hooks that automatically check your code quality before each commit:
 
 ```bash
-uv run pre-commit install
+pre-commit install
 ```
 
 **When to use it:**
@@ -144,7 +163,7 @@ git add .
 This command commits your staged changes:
 
 ```bash
-git commit -m "Your commit message"
+git commit -m "Add new feature"
 ```
 
 **When to use it:**
@@ -158,7 +177,8 @@ git commit -m "Your commit message"
 ```bash
 # Initial setup (only once)
 uv sync
-uv run pre-commit install
+uv venv
+pre-commit install
 
 # Development cycle (repeat as needed)
 # 1. Make changes to your code
@@ -166,9 +186,29 @@ uv run pre-commit install
 git add .
 # 3. Commit changes (pre-commit hooks run automatically)
 git commit -m "Add new feature"
+# 4. to run all github hooks without committing use
+poe pre
 ```
 
 That's it! With just these 4 commands, you can handle the entire development workflow while maintaining high code quality standards.
+
+!!! warning "For pip Users"
+
+    If you're coming from a traditional pip workflow, here's how commands compare:
+
+    | pip Command                       | UV Equivalent    | Description          |
+    | --------------------------------- | ---------------- | -------------------- |
+    | `pip install -r requirements.txt` | `uv sync`        | Install dependencies |
+    | `pip install package`             | `uv add package` | Install a package    |
+
+    **Important:** This project uses `pyproject.toml` instead of `requirements.txt`. Think of it as requirements.txt on steroids:
+
+    - It defines project metadata, dependencies, dev dependencies, and build configuration in one file
+    - It's standardized (PEP 621) and works with any modern Python tooling
+    - It supports precise version specifications and dependency groups
+    - It's used by the build system, linters, formatters, and other tools
+
+    While you could still use pip with this project, you'd miss out on the benefits of modern Python tooling like faster installations, better dependency resolution, and integrated development workflows.
 
 ## IDE Integration
 
@@ -189,7 +229,10 @@ Cursor provides all VSCode features plus AI-assisted development:
 
 1. Open the project in Cursor
 2. Cursor will automatically use the project's settings and extensions
-3. Use AI features to help with code completion, refactoring, and documentation
+3. Enable AI features in Cursor settings, MCP, YOLO MODE, etc.
+4. Install ALL the extensions of the project
+5. Use AI features to help with code completion, refactoring, and documentation. especially the agent. mnj
+6. Use AI features to help with code completion, refactoring, and documentation
 
 ## Next Steps
 

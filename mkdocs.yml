@@ -66,13 +66,32 @@ extra:
 
 nav:
   - Home: index.md
+  - Why This Project: why.md
+  - Learning Path:
+    - Overview: learning-path/index.md
+    - Beginner's Guide: learning-path/beginners-guide.md
+    - Intermediate Topics: learning-path/intermediate-topics.md
+    - Advanced Techniques: learning-path/advanced-techniques.md
+  - Tutorials:
+    - Overview: tutorials/index.md
+    - Setup Your First Project: tutorials/setup-your-first-project.md
+    - Adding a Feature: tutorials/adding-a-feature.md
+    - Testing Your Code: tutorials/testing-your-code.md
+  - Tools Guide:
+    - Overview: tools-guide/index.md
+    - Code Quality: tools-guide/code-quality.md
+    - Documentation: tools-guide/documentation.md
+    - Testing: tools-guide/testing.md
+    - Project Management: tools-guide/project-management.md
   - Getting Started: getting-started.md
   - Architecture:
+    - Overview: architecture/index.md
     - Configuration: architecture/configuration.md
     - Logging: architecture/logging.md
     - IDE Setup: architecture/ide-setup.md
     - Lazy Loading: architecture/lazy-loading.md
   - Development:
+    - Overview: development/index.md
     - Pre-commit Hooks: development/pre-commit-hooks.md
     - Workflow: development/workflow.md
     - Simplified Workflow: development/simplified-workflow.md
