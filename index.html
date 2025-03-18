@@ -375,22 +375,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-ide-setup-optional" class="md-nav__link">
+  <a href="#step-2-set-up-your-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: IDE Setup (Optional)
+      Step 2: Set Up Your Project
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-set-up-your-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Set Up Your Project
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 3: Set Up Your Project">
+    <nav class="md-nav" aria-label="Step 2: Set Up Your Project">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2587,22 +2578,13 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#step-2-ide-setup-optional" class="md-nav__link">
+  <a href="#step-2-set-up-your-project" class="md-nav__link">
     <span class="md-ellipsis">
-      Step 2: IDE Setup (Optional)
+      Step 2: Set Up Your Project
     </span>
   </a>
   
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#step-3-set-up-your-project" class="md-nav__link">
-    <span class="md-ellipsis">
-      Step 3: Set Up Your Project
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Step 3: Set Up Your Project">
+    <nav class="md-nav" aria-label="Step 2: Set Up Your Project">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2777,6 +2759,13 @@
 <p>See <a href="why/">Why I Created This Project</a> for a detailed explanation of the motivation, philosophy, and approach behind this project.</p>
 <h1 id="python-starting-project">Python Starting Project<a class="headerlink" href="#python-starting-project" title="Permanent link">&para;</a></h1>
 <p>A comprehensive learning template for Python applications with modern tools and best practices.</p>
+<p>If you know uv ,git, and cursor/VSCODE, and have python 3.11+ installed, just run the 4 commands below:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>sync
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>uv<span class="w"> </span>venv
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>pre-commit<span class="w"> </span>install
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># to run prehooks locally</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>poe<span class="w"> </span>pre
+</span></code></pre></div>
 <h2 id="quick-setup">Quick Setup<a class="headerlink" href="#quick-setup" title="Permanent link">&para;</a></h2>
 <h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
 <ul>
@@ -2792,15 +2781,9 @@
 <li>Install <a href="https://docs.astral.sh/uv/getting-started/installation/">UV</a> - Modern Python package manager</li>
 </ol>
 <p>Verify installation with:</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>uv<span class="w"> </span>--version
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>uv<span class="w"> </span>--version
 </span></code></pre></div>
-<h3 id="step-2-ide-setup-optional">Step 2: IDE Setup (Optional)<a class="headerlink" href="#step-2-ide-setup-optional" title="Permanent link">&para;</a></h3>
-<p>For the best development experience, we recommend:</p>
-<ul>
-<li><a href="https://cursor.sh/">Cursor</a> - AI-powered code editor (recommended)</li>
-<li><a href="https://code.visualstudio.com/">Visual Studio Code</a> - Popular code editor</li>
-</ul>
-<h3 id="step-3-set-up-your-project">Step 3: Set Up Your Project<a class="headerlink" href="#step-3-set-up-your-project" title="Permanent link">&para;</a></h3>
+<h3 id="step-2-set-up-your-project">Step 2: Set Up Your Project<a class="headerlink" href="#step-2-set-up-your-project" title="Permanent link">&para;</a></h3>
 <p>You can either start from our template or clone the repository directly:</p>
 <h4 id="option-a-use-github-template">Option A: Use GitHub Template<a class="headerlink" href="#option-a-use-github-template" title="Permanent link">&para;</a></h4>
 <ol>
@@ -2809,28 +2792,28 @@
 <li>Choose "Create a new repository"</li>
 <li>Fill in your repository details</li>
 <li>Clone your new repository:
-   <div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/your-repo-name.git
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="nb">cd</span><span class="w"> </span>your-repo-name
+   <div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/your-username/your-repo-name.git
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>your-repo-name
 </span></code></pre></div></li>
 </ol>
 <h4 id="option-b-direct-clone">Option B: Direct Clone<a class="headerlink" href="#option-b-direct-clone" title="Permanent link">&para;</a></h4>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/yourusername/python-starting-project.git
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="nb">cd</span><span class="w"> </span>python-starting-project
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/dhkts1/Python-Starting-Project
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="nb">cd</span><span class="w"> </span>Python-Starting-Project
 </span></code></pre></div>
 <h3 id="step-5-install-dependencies-and-create-virtual-environment">Step 5: Install Dependencies and Create Virtual Environment<a class="headerlink" href="#step-5-install-dependencies-and-create-virtual-environment" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>uv<span class="w"> </span>sync
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>uv<span class="w"> </span>sync
 </span></code></pre></div>
 <h3 id="step-6-set-up-pre-commit-hooks-all-the-format-linting-testing-etc-tools-that-will-run-automatically-when-you-commit">Step 6: Set Up Pre-commit Hooks (all the format, linting, testing, etc tools that will run automatically when you commit)<a class="headerlink" href="#step-6-set-up-pre-commit-hooks-all-the-format-linting-testing-etc-tools-that-will-run-automatically-when-you-commit" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="c1"># Install pre-commit hooks</span>
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>pre-commit<span class="w"> </span>install
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Install pre-commit hooks</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>pre-commit<span class="w"> </span>install
 </span></code></pre></div>
 <h3 id="step-7-verify-your-setup">Step 7: Verify Your Setup<a class="headerlink" href="#step-7-verify-your-setup" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="c1"># Run all pre-commit checks</span>
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>poe<span class="w"> </span>pre
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Run all pre-commit checks</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>poe<span class="w"> </span>pre
 </span></code></pre></div>
 <h3 id="step-8-run-the-sample-application">Step 8: Run the Sample Application<a class="headerlink" href="#step-8-run-the-sample-application" title="Permanent link">&para;</a></h3>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="c1"># Run the main script</span>
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>python<span class="w"> </span>-m<span class="w"> </span>src.main
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="c1"># Run the main script</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>python<span class="w"> </span>-m<span class="w"> </span>src.main
 </span></code></pre></div>
 <p>You're all set! Start developing with confidence.</p>
 <blockquote>
