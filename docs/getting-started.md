@@ -1,5 +1,14 @@
 # Python Starting Project
 
+!!! note "New Documentation Structure"
+
+    This content is being migrated to a more learning-focused structure. See:
+
+    - [Beginner's Guide](learning-path/beginners-guide.md)
+    - [Setup Tutorial](tutorials/setup-your-first-project.md)
+
+    The original content will remain available until the migration is complete.
+
 A comprehensive Python project template with built-in logging, configuration management, and development tools. This template provides a solid foundation for building Python applications with best practices for configuration, logging, code quality, and project structure.
 
 <!-- Dynamic Badges -->
@@ -170,6 +179,24 @@ git commit -m "Add new feature"
 
 That's it! With just these 4 commands, you can handle the entire development workflow while maintaining high code quality standards.
 
+!!! warning "For pip Users"
+
+    If you're coming from a traditional pip workflow, here's how commands compare:
+
+    | pip Command                       | UV Equivalent    | Description          |
+    | --------------------------------- | ---------------- | -------------------- |
+    | `pip install -r requirements.txt` | `uv sync`        | Install dependencies |
+    | `pip install package`             | `uv add package` | Install a package    |
+
+    **Important:** This project uses `pyproject.toml` instead of `requirements.txt`. Think of it as requirements.txt on steroids:
+
+    - It defines project metadata, dependencies, dev dependencies, and build configuration in one file
+    - It's standardized (PEP 621) and works with any modern Python tooling
+    - It supports precise version specifications and dependency groups
+    - It's used by the build system, linters, formatters, and other tools
+
+    While you could still use pip with this project, you'd miss out on the benefits of modern Python tooling like faster installations, better dependency resolution, and integrated development workflows.
+
 ## IDE Integration
 
 The project is configured to work with both VSCode and Cursor:
@@ -189,7 +216,10 @@ Cursor provides all VSCode features plus AI-assisted development:
 
 1. Open the project in Cursor
 2. Cursor will automatically use the project's settings and extensions
-3. Use AI features to help with code completion, refactoring, and documentation
+3. Enable AI features in Cursor settings, MCP, YOLO MODE, etc.
+4. Install ALL the extensions of the project
+5. Use AI features to help with code completion, refactoring, and documentation. especially the agent. mnj
+6. Use AI features to help with code completion, refactoring, and documentation
 
 ## Next Steps
 
